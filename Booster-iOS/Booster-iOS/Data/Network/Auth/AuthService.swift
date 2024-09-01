@@ -36,7 +36,7 @@ enum AuthTarget: MyMoya.Endpoint {
     var route: (Moya.Method, String, Moya.Task) {
         switch self {
         case .signIn(let req):
-                .post - "sign-in" - req.toJSONParameters()
+                .post - "sign-in/oauth2" - req.toJSONParameters()
         case .refresh(let req):
                 .post - "refresh" - req.toJSONParameters()
         }
