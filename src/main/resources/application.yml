@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: auth-template
+  # DB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DB_URL:jdbc:mysql://localhost:3306/test}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD} # TODO: Put your DB password
+  # JPA
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+jwt:
+  secret: ${JWT_SECRET} # TODO: Put your jwt secret
+  expired:
+    access: 3600
+    refresh: 300000
+
+oauth2:
+  google:
+    client-id:
+      ios: ${GOOGLE_CLIENT_ID_IOS} # TODO: Put your google client id for ios 
+      web: ${GOOGLE_CLIENT_ID_WEB} # TODO: Put your google client id for web
+    client-secret: ${GOOGLE_CLIENT_SECRET} # TODO: Put your google client secret
