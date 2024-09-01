@@ -1,6 +1,6 @@
 spring:
   application:
-    name: auth-template
+    name: booster
   # DB
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver

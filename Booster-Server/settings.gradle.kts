@@ -1,1 +1,1 @@
-rootProject.name = "auth-template"
+rootProject.name = "booster"
