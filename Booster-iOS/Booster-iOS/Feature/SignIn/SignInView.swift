@@ -12,10 +12,13 @@ import GoogleSignInSwift
 
 struct SignInView: View {
     
+    @StateObject private var observable = SignInObservable()
+    
     var body: some View {
         MyTopAppBar.default(title: "로그인") { insets in
             VStack {
                 Text("WOW")
+                Spacer()
                 GoogleSignInButton {
                     GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController!) { result, err in
                         if let err {
@@ -29,23 +32,7 @@ struct SignInView: View {
                             print("idToken not founded")
                             return
                         }
-                        
-                        Task {
-                            //                                do {
-                            //                                    let response1 = try await API.session.request(
-                            //                                        "http://localhost:8080/auth/sign-in/oauth2",
-                            //                                        method: .post,
-                            //                                        parameters: OAuth2SignInReq(
-                            //                                            platformType: "GOOGLE",
-                            //                                            idToken: idToken
-                            //                                        ),
-                            //                                        encoder: JSONParameterEncoder()
-                            //                                    ).serializingDecodable(BaseRes<JwtInfoRes>.self).value
-                            //                                    print(response1)
-                            //                                } catch {
-                            //                                    print(error)
-                            //                                }
-                        }
+                        observable.googleSignIn(idToken: idToken)
                     }
                 }
             }

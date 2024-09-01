@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2586819A2C849CC9000905E2 /* Booster_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681992C849CC9000905E2 /* Booster_iOSApp.swift */; };
-		2586819C2C849CC9000905E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586819B2C849CC9000905E2 /* ContentView.swift */; };
 		2586819E2C849CCC000905E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2586819D2C849CCC000905E2 /* Assets.xcassets */; };
 		258681A12C849CCC000905E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 258681A02C849CCC000905E2 /* Preview Assets.xcassets */; };
 		258681AB2C849D15000905E2 /* MyDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 258681AA2C849D15000905E2 /* MyDesignSystem */; };
@@ -20,12 +19,25 @@
 		258681BA2C849E3B000905E2 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 258681B92C849E3B000905E2 /* GoogleSignInSwift */; };
 		258681BE2C849EE5000905E2 /* View+rootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681BD2C849EE5000905E2 /* View+rootViewController.swift */; };
 		258681C32C84A0E1000905E2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681C22C84A0E1000905E2 /* Router.swift */; };
+		258681C82C84A35D000905E2 /* UserDefaultsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681C72C84A35D000905E2 /* UserDefaultsType.swift */; };
+		258681CC2C84A463000905E2 /* SignKit in Frameworks */ = {isa = PBXBuildFile; productRef = 258681CB2C84A463000905E2 /* SignKit */; };
+		258681CF2C84A726000905E2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681CE2C84A726000905E2 /* AppState.swift */; };
+		258681D12C8527D0000905E2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681D02C8527D0000905E2 /* AuthService.swift */; };
+		258681D42C8527FC000905E2 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681D32C8527FC000905E2 /* Models.swift */; };
+		258681D72C85286C000905E2 /* EndpointExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681D62C85286C000905E2 /* EndpointExt.swift */; };
+		258681DA2C852901000905E2 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681D92C852901000905E2 /* Result.swift */; };
+		258681DC2C852935000905E2 /* ResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681DB2C852935000905E2 /* ResponseProtocol.swift */; };
+		258681DE2C852961000905E2 /* BaseRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681DD2C852961000905E2 /* BaseRes.swift */; };
+		258681E12C8529BA000905E2 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681E02C8529BA000905E2 /* Service.swift */; };
+		258681E32C852A06000905E2 /* BaseVoidRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681E22C852A06000905E2 /* BaseVoidRes.swift */; };
+		258681E52C852A0D000905E2 /* ErrorRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681E42C852A0D000905E2 /* ErrorRes.swift */; };
+		258681E72C852D59000905E2 /* SignInObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681E62C852D59000905E2 /* SignInObservable.swift */; };
+		258681EC2C852DD0000905E2 /* BaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681EB2C852DD0000905E2 /* BaseObservable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		258681962C849CC9000905E2 /* Booster-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Booster-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		258681992C849CC9000905E2 /* Booster_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booster_iOSApp.swift; sourceTree = "<group>"; };
-		2586819B2C849CC9000905E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2586819D2C849CCC000905E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		258681A02C849CCC000905E2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		258681B12C849DCA000905E2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -34,6 +46,19 @@
 		258681BF2C849FE3000905E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		258681C02C84A07D000905E2 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		258681C22C84A0E1000905E2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		258681C72C84A35D000905E2 /* UserDefaultsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsType.swift; sourceTree = "<group>"; };
+		258681CE2C84A726000905E2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		258681D02C8527D0000905E2 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		258681D32C8527FC000905E2 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		258681D62C85286C000905E2 /* EndpointExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointExt.swift; sourceTree = "<group>"; };
+		258681D92C852901000905E2 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		258681DB2C852935000905E2 /* ResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseProtocol.swift; sourceTree = "<group>"; };
+		258681DD2C852961000905E2 /* BaseRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRes.swift; sourceTree = "<group>"; };
+		258681E02C8529BA000905E2 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		258681E22C852A06000905E2 /* BaseVoidRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVoidRes.swift; sourceTree = "<group>"; };
+		258681E42C852A0D000905E2 /* ErrorRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorRes.swift; sourceTree = "<group>"; };
+		258681E62C852D59000905E2 /* SignInObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInObservable.swift; sourceTree = "<group>"; };
+		258681EB2C852DD0000905E2 /* BaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObservable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				258681CC2C84A463000905E2 /* SignKit in Frameworks */,
 				258681BA2C849E3B000905E2 /* GoogleSignInSwift in Frameworks */,
 				258681AD2C849D15000905E2 /* MyMoya in Frameworks */,
 				258681B82C849E3B000905E2 /* GoogleSignIn in Frameworks */,
@@ -75,7 +101,7 @@
 				258681BB2C849EB2000905E2 /* Shared */,
 				258681A72C849CD3000905E2 /* Application */,
 				258681A82C849CD8000905E2 /* Feature */,
-				2586819B2C849CC9000905E2 /* ContentView.swift */,
+				258681C42C84A348000905E2 /* Data */,
 				2586819D2C849CCC000905E2 /* Assets.xcassets */,
 				2586819F2C849CCC000905E2 /* Preview Content */,
 				258681C02C84A07D000905E2 /* Config.xcconfig */,
@@ -95,7 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				258681992C849CC9000905E2 /* Booster_iOSApp.swift */,
-				258681C22C84A0E1000905E2 /* Router.swift */,
+				258681CD2C84A71D000905E2 /* Observable */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -103,6 +129,7 @@
 		258681A82C849CD8000905E2 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				258681EA2C852DCC000905E2 /* Core */,
 				258681B32C849DD4000905E2 /* SignIn */,
 				258681B02C849DBD000905E2 /* Main */,
 			);
@@ -121,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				258681B42C849DDB000905E2 /* SignInView.swift */,
+				258681E62C852D59000905E2 /* SignInObservable.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -139,6 +167,88 @@
 				258681BD2C849EE5000905E2 /* View+rootViewController.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		258681C42C84A348000905E2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				258681C62C84A357000905E2 /* Local */,
+				258681C52C84A355000905E2 /* Network */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		258681C52C84A355000905E2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				258681D82C8528F7000905E2 /* Core */,
+				258681D22C8527F5000905E2 /* Auth */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		258681C62C84A357000905E2 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				258681C72C84A35D000905E2 /* UserDefaultsType.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		258681CD2C84A71D000905E2 /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				258681C22C84A0E1000905E2 /* Router.swift */,
+				258681CE2C84A726000905E2 /* AppState.swift */,
+			);
+			path = Observable;
+			sourceTree = "<group>";
+		};
+		258681D22C8527F5000905E2 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				258681D02C8527D0000905E2 /* AuthService.swift */,
+				258681D32C8527FC000905E2 /* Models.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		258681D52C852867000905E2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				258681D62C85286C000905E2 /* EndpointExt.swift */,
+				258681E02C8529BA000905E2 /* Service.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		258681D82C8528F7000905E2 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				258681D92C852901000905E2 /* Result.swift */,
+				258681DF2C852965000905E2 /* Data */,
+				258681D52C852867000905E2 /* Extensions */,
+				258681DB2C852935000905E2 /* ResponseProtocol.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		258681DF2C852965000905E2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				258681DD2C852961000905E2 /* BaseRes.swift */,
+				258681E22C852A06000905E2 /* BaseVoidRes.swift */,
+				258681E42C852A0D000905E2 /* ErrorRes.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		258681EA2C852DCC000905E2 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				258681EB2C852DD0000905E2 /* BaseObservable.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +273,7 @@
 				258681AE2C849D15000905E2 /* MyShared */,
 				258681B72C849E3B000905E2 /* GoogleSignIn */,
 				258681B92C849E3B000905E2 /* GoogleSignInSwift */,
+				258681CB2C84A463000905E2 /* SignKit */,
 			);
 			productName = "Booster-iOS";
 			productReference = 258681962C849CC9000905E2 /* Booster-iOS.app */;
@@ -195,6 +306,7 @@
 			packageReferences = (
 				258681A92C849D15000905E2 /* XCRemoteSwiftPackageReference "my-ios-kit" */,
 				258681B62C849E3B000905E2 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				258681CA2C84A463000905E2 /* XCRemoteSwiftPackageReference "SignKit" */,
 			);
 			productRefGroup = 258681972C849CC9000905E2 /* Products */;
 			projectDirPath = "";
@@ -222,12 +334,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2586819C2C849CC9000905E2 /* ContentView.swift in Sources */,
 				258681B22C849DCA000905E2 /* MainView.swift in Sources */,
+				258681E32C852A06000905E2 /* BaseVoidRes.swift in Sources */,
+				258681E12C8529BA000905E2 /* Service.swift in Sources */,
 				258681B52C849DDB000905E2 /* SignInView.swift in Sources */,
+				258681CF2C84A726000905E2 /* AppState.swift in Sources */,
+				258681E72C852D59000905E2 /* SignInObservable.swift in Sources */,
+				258681C82C84A35D000905E2 /* UserDefaultsType.swift in Sources */,
 				258681BE2C849EE5000905E2 /* View+rootViewController.swift in Sources */,
 				258681C32C84A0E1000905E2 /* Router.swift in Sources */,
+				258681DE2C852961000905E2 /* BaseRes.swift in Sources */,
+				258681DC2C852935000905E2 /* ResponseProtocol.swift in Sources */,
+				258681D72C85286C000905E2 /* EndpointExt.swift in Sources */,
 				2586819A2C849CC9000905E2 /* Booster_iOSApp.swift in Sources */,
+				258681D42C8527FC000905E2 /* Models.swift in Sources */,
+				258681E52C852A0D000905E2 /* ErrorRes.swift in Sources */,
+				258681EC2C852DD0000905E2 /* BaseObservable.swift in Sources */,
+				258681D12C8527D0000905E2 /* AuthService.swift in Sources */,
+				258681DA2C852901000905E2 /* Result.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +485,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Booster-iOS/Booster-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Booster-iOS/Preview Content\"";
@@ -394,6 +519,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Booster-iOS/Booster-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Booster-iOS/Preview Content\"";
@@ -461,6 +587,14 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		258681CA2C84A463000905E2 /* XCRemoteSwiftPackageReference "SignKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hhhello0507/SignKit";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -488,6 +622,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 258681B62C849E3B000905E2 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		258681CB2C84A463000905E2 /* SignKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 258681CA2C84A463000905E2 /* XCRemoteSwiftPackageReference "SignKit" */;
+			productName = SignKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

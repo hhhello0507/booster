@@ -15,6 +15,7 @@ struct Booster_iOSApp: App {
     @State private var timePickerProvider = TimePickerProvider()
     @State private var datePickerProvider = DatePickerProvider()
     @StateObject private var router = Router()
+    @StateObject private var appState = AppState()
     
     init() {
         Wanted.register()
@@ -28,7 +29,11 @@ struct Booster_iOSApp: App {
                 timePickerProvider: timePickerProvider
             ) {
                 NavigationStack(path: $router.path) {
-                    SignInView()
+                    if let accessToken = appState.accessToken {
+                        MainView()
+                    } else {
+                        SignInView()
+                    }
                 }
             }
         }
