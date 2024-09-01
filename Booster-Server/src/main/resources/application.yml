@@ -22,5 +22,3 @@ oauth2:
   google:
     client-id:
       ios: ${GOOGLE_CLIENT_ID_IOS} # TODO: Put your google client id for ios 
-      web: ${GOOGLE_CLIENT_ID_WEB} # TODO: Put your google client id for web
-    client-secret: ${GOOGLE_CLIENT_SECRET} # TODO: Put your google client secret

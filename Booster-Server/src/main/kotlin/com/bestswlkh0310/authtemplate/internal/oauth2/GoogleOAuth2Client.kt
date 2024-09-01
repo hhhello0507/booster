@@ -53,8 +53,7 @@ class GoogleOAuth2Client(
         )
             .setAudience(
                 listOf(
-                    oAuth2Properties.googleClientIdIOS,
-                    oAuth2Properties.googleClientIdWeb
+                    oAuth2Properties.googleClientIdIOS
                 )
             )
             .build()
