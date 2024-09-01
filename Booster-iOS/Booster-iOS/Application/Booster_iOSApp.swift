@@ -6,12 +6,31 @@
 //
 
 import SwiftUI
+import MyDesignSystem
 
 @main
 struct Booster_iOSApp: App {
+    
+    @State private var dialogProvider = DialogProvider()
+    @State private var timePickerProvider = TimePickerProvider()
+    @State private var datePickerProvider = DatePickerProvider()
+    @StateObject private var router = Router()
+    
+    init() {
+        Wanted.register()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MyModalProvider(
+                dialogProvider: dialogProvider,
+                datePickerProvider: datePickerProvider,
+                timePickerProvider: timePickerProvider
+            ) {
+                NavigationStack(path: $router.path) {
+                    SignInView()
+                }
+            }
         }
     }
 }

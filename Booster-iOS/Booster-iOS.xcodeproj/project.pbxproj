@@ -14,6 +14,12 @@
 		258681AB2C849D15000905E2 /* MyDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 258681AA2C849D15000905E2 /* MyDesignSystem */; };
 		258681AD2C849D15000905E2 /* MyMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 258681AC2C849D15000905E2 /* MyMoya */; };
 		258681AF2C849D15000905E2 /* MyShared in Frameworks */ = {isa = PBXBuildFile; productRef = 258681AE2C849D15000905E2 /* MyShared */; };
+		258681B22C849DCA000905E2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681B12C849DCA000905E2 /* MainView.swift */; };
+		258681B52C849DDB000905E2 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681B42C849DDB000905E2 /* SignInView.swift */; };
+		258681B82C849E3B000905E2 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 258681B72C849E3B000905E2 /* GoogleSignIn */; };
+		258681BA2C849E3B000905E2 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 258681B92C849E3B000905E2 /* GoogleSignInSwift */; };
+		258681BE2C849EE5000905E2 /* View+rootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681BD2C849EE5000905E2 /* View+rootViewController.swift */; };
+		258681C32C84A0E1000905E2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681C22C84A0E1000905E2 /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		2586819B2C849CC9000905E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2586819D2C849CCC000905E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		258681A02C849CCC000905E2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		258681B12C849DCA000905E2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		258681B42C849DDB000905E2 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		258681BD2C849EE5000905E2 /* View+rootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+rootViewController.swift"; sourceTree = "<group>"; };
+		258681BF2C849FE3000905E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		258681C02C84A07D000905E2 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		258681C22C84A0E1000905E2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,7 +41,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				258681BA2C849E3B000905E2 /* GoogleSignInSwift in Frameworks */,
 				258681AD2C849D15000905E2 /* MyMoya in Frameworks */,
+				258681B82C849E3B000905E2 /* GoogleSignIn in Frameworks */,
 				258681AF2C849D15000905E2 /* MyShared in Frameworks */,
 				258681AB2C849D15000905E2 /* MyDesignSystem in Frameworks */,
 			);
@@ -57,11 +71,14 @@
 		258681982C849CC9000905E2 /* Booster-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				258681BF2C849FE3000905E2 /* Info.plist */,
+				258681BB2C849EB2000905E2 /* Shared */,
 				258681A72C849CD3000905E2 /* Application */,
 				258681A82C849CD8000905E2 /* Feature */,
 				2586819B2C849CC9000905E2 /* ContentView.swift */,
 				2586819D2C849CCC000905E2 /* Assets.xcassets */,
 				2586819F2C849CCC000905E2 /* Preview Content */,
+				258681C02C84A07D000905E2 /* Config.xcconfig */,
 			);
 			path = "Booster-iOS";
 			sourceTree = "<group>";
@@ -78,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				258681992C849CC9000905E2 /* Booster_iOSApp.swift */,
+				258681C22C84A0E1000905E2 /* Router.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -85,8 +103,42 @@
 		258681A82C849CD8000905E2 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				258681B32C849DD4000905E2 /* SignIn */,
+				258681B02C849DBD000905E2 /* Main */,
 			);
 			path = Feature;
+			sourceTree = "<group>";
+		};
+		258681B02C849DBD000905E2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				258681B12C849DCA000905E2 /* MainView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		258681B32C849DD4000905E2 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				258681B42C849DDB000905E2 /* SignInView.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		258681BB2C849EB2000905E2 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				258681BC2C849EB8000905E2 /* Extensions */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		258681BC2C849EB8000905E2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				258681BD2C849EE5000905E2 /* View+rootViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,6 +161,8 @@
 				258681AA2C849D15000905E2 /* MyDesignSystem */,
 				258681AC2C849D15000905E2 /* MyMoya */,
 				258681AE2C849D15000905E2 /* MyShared */,
+				258681B72C849E3B000905E2 /* GoogleSignIn */,
+				258681B92C849E3B000905E2 /* GoogleSignInSwift */,
 			);
 			productName = "Booster-iOS";
 			productReference = 258681962C849CC9000905E2 /* Booster-iOS.app */;
@@ -140,6 +194,7 @@
 			mainGroup = 2586818D2C849CC9000905E2;
 			packageReferences = (
 				258681A92C849D15000905E2 /* XCRemoteSwiftPackageReference "my-ios-kit" */,
+				258681B62C849E3B000905E2 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 258681972C849CC9000905E2 /* Products */;
 			projectDirPath = "";
@@ -168,6 +223,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2586819C2C849CC9000905E2 /* ContentView.swift in Sources */,
+				258681B22C849DCA000905E2 /* MainView.swift in Sources */,
+				258681B52C849DDB000905E2 /* SignInView.swift in Sources */,
+				258681BE2C849EE5000905E2 /* View+rootViewController.swift in Sources */,
+				258681C32C84A0E1000905E2 /* Router.swift in Sources */,
 				2586819A2C849CC9000905E2 /* Booster_iOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +236,7 @@
 /* Begin XCBuildConfiguration section */
 		258681A22C849CCC000905E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 258681C02C84A07D000905E2 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -240,6 +300,7 @@
 		};
 		258681A32C849CCC000905E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 258681C02C84A07D000905E2 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -296,6 +357,7 @@
 		};
 		258681A52C849CCC000905E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 258681C02C84A07D000905E2 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -305,17 +367,20 @@
 				DEVELOPMENT_TEAM = B42SPPS3PR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Booster-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "부스터";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hhhello0507.Booster-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hhhello0507.booster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -325,6 +390,7 @@
 		};
 		258681A62C849CCC000905E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 258681C02C84A07D000905E2 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -334,17 +400,20 @@
 				DEVELOPMENT_TEAM = B42SPPS3PR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Booster-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "부스터";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hhhello0507.Booster-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hhhello0507.booster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -384,6 +453,14 @@
 				minimumVersion = 1.5.6;
 			};
 		};
+		258681B62C849E3B000905E2 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -401,6 +478,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 258681A92C849D15000905E2 /* XCRemoteSwiftPackageReference "my-ios-kit" */;
 			productName = MyShared;
+		};
+		258681B72C849E3B000905E2 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 258681B62C849E3B000905E2 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		258681B92C849E3B000905E2 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 258681B62C849E3B000905E2 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
