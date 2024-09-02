@@ -34,6 +34,7 @@ let data = [
 
 struct MainView: View {
     
+    @StateObject private var explorationObservable = ExplorationObservable()
     @State private var selection = data[0]
     
     var body: some View {
@@ -44,6 +45,10 @@ struct MainView: View {
             case .home: HomeView()
             case .exploration: ExplorationView()
             }
+        }
+        .environmentObject(explorationObservable)
+        .onAppear {
+            explorationObservable.fetchBoards()
         }
     }
 }

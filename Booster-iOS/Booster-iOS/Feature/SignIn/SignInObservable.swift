@@ -7,7 +7,9 @@
 
 import Foundation
 
-final class SignInObservable: BaseObservable {
+final class SignInObservable: BaseObservable<SignInObservable.Effect> {
+    
+    enum Effect {}
     
     func googleSignIn(idToken: String, completion: @escaping (TokenRes) -> Void) {
         AuthService.shared.oAuth2SignIn(

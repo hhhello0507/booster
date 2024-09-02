@@ -61,7 +61,6 @@ final class TokenInterceptor: Moya.RequestInterceptor {
         }
         
         print("✅ AuthInterceptor - Try refresh with token - \(refreshToken)")
-        
         AuthService.shared.refresh(
             .init(refreshToken: refreshToken)
         ).success { res in
@@ -69,13 +68,11 @@ final class TokenInterceptor: Moya.RequestInterceptor {
             let accessToken = String(res.data.accessToken.split(separator: " ")[1])
             MySign.reissue(accessToken)
             completion(.retry)
-        }
-        .failure { err in
+        }.failure { err in
             MySign.logout()
             print("❌ AuthInterceptor - Refresh Failure")
             completion(.doNotRetryWithError(APIError<ErrorRes>.refreshFailure))
-        }
-        .observe(&subscriptions)
+        }.observe(&subscriptions)
     }
     
     deinit {

@@ -27,7 +27,7 @@ enum AuthTarget: MyMoya.Endpoint {
     case signIn(OAuth2SignIn)
     case refresh(RefreshReq)
 
-    static var provider: MoyaProvider<AuthTarget> = .init(session: .init(interceptor: TokenInterceptor()))
+    static var provider: MoyaProvider<Self> = .init()
     
     var host: String {
         "auth"

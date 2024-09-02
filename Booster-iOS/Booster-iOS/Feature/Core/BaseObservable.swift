@@ -7,8 +7,19 @@
 
 import Combine
 
-open class BaseObservable: ObservableObject {
+open class BaseObservable<Effect>: ObservableObject {
     public var subscriptions = Set<AnyCancellable>()
+    private let effect = PassthroughSubject<Effect, Never>()
+    
+    func subscribe(_ subscriber: @escaping (Effect) -> Void) {
+        effect
+            .sink(receiveValue: subscriber)
+            .store(in: &subscriptions)
+    }
+    
+    func emit(_ effect: Effect) {
+        self.effect.send(effect)
+    }
     
     deinit {
         subscriptions.forEach {

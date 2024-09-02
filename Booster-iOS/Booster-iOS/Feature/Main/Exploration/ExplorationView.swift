@@ -9,6 +9,9 @@ import SwiftUI
 import MyDesignSystem
 
 struct ExplorationView: View {
+    
+    @EnvironmentObject private var observable: ExplorationObservable
+    
     var body: some View {
         MyTopAppBar.default(title: "탐색") {
                 HStack(spacing: 0) {
@@ -17,15 +20,19 @@ struct ExplorationView: View {
                         .renderingMode(.template)
                         .foreground(Colors.Primary.normal)
                         .frame(width: 24, height: 24)
-                    Text("100") // TODO: Dummy
+                    Text("100")
                         .myFont(.bodyM)
                         .foreground(Colors.Label.assistive)
                 }
                 .padding(.trailing, 15)
         } content: { insets in
             ScrollView {
-                LazyVGrid(columns: []) {
-                    
+                Group {
+                    if let boards = observable.boards {
+                        BoardsContainer(for: boards)
+                    } else {
+                        ProgressView()
+                    }
                 }
                 .padding(insets)
             }

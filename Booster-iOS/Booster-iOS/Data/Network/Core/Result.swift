@@ -7,7 +7,7 @@ public struct ObservableResult<T> {
     let result: Result<T>
     let fetching: (() -> Void)?
     let success: ((T) -> Void)?
-    let failure: ((Error) -> Void)?
+    let failure: ((APIError<ErrorRes>) -> Void)?
     let finished: (() -> Void)?
     
     public func fetching(_ fetching: @escaping () -> Void) -> Self {
@@ -18,7 +18,7 @@ public struct ObservableResult<T> {
         return .init(result: result, fetching: fetching, success: success, failure: failure, finished: finished)
     }
     
-    public func failure(_ failure: @escaping (Error) -> Void) -> Self {
+    public func failure(_ failure: @escaping (APIError<ErrorRes>) -> Void) -> Self {
         return .init(result: result, fetching: fetching, success: success, failure: failure, finished: finished)
     }
     
