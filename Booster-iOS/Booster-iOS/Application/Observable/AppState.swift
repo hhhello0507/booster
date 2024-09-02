@@ -15,4 +15,11 @@ final class AppState: ObservableObject {
             }
         }
     }
+    @Published var refreshToken: String? = MySign.refreshToken {
+        didSet {
+            if let refreshToken, let accessToken {
+                MySign.login(id: "", password: "", accessToken: accessToken, refreshToken: refreshToken)
+            }
+        }
+    }
 }

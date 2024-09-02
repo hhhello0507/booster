@@ -13,7 +13,7 @@
 		258681AB2C849D15000905E2 /* MyDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 258681AA2C849D15000905E2 /* MyDesignSystem */; };
 		258681AD2C849D15000905E2 /* MyMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 258681AC2C849D15000905E2 /* MyMoya */; };
 		258681AF2C849D15000905E2 /* MyShared in Frameworks */ = {isa = PBXBuildFile; productRef = 258681AE2C849D15000905E2 /* MyShared */; };
-		258681B22C849DCA000905E2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681B12C849DCA000905E2 /* MainView.swift */; };
+		258681B22C849DCA000905E2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681B12C849DCA000905E2 /* HomeView.swift */; };
 		258681B52C849DDB000905E2 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681B42C849DDB000905E2 /* SignInView.swift */; };
 		258681B82C849E3B000905E2 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 258681B72C849E3B000905E2 /* GoogleSignIn */; };
 		258681BA2C849E3B000905E2 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 258681B92C849E3B000905E2 /* GoogleSignInSwift */; };
@@ -33,6 +33,10 @@
 		258681E52C852A0D000905E2 /* ErrorRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681E42C852A0D000905E2 /* ErrorRes.swift */; };
 		258681E72C852D59000905E2 /* SignInObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681E62C852D59000905E2 /* SignInObservable.swift */; };
 		258681EC2C852DD0000905E2 /* BaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681EB2C852DD0000905E2 /* BaseObservable.swift */; };
+		25A7BF422C857FA5004782C9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A7BF412C857FA5004782C9 /* MainView.swift */; };
+		25A7BF442C858098004782C9 /* BoosterIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A7BF432C858098004782C9 /* BoosterIcons.swift */; };
+		25A7BF482C8581CE004782C9 /* ExplorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A7BF472C8581CE004782C9 /* ExplorationView.swift */; };
+		25FB98C92C8551D0007C349F /* TokenInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FB98C82C8551D0007C349F /* TokenInterceptor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +44,7 @@
 		258681992C849CC9000905E2 /* Booster_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booster_iOSApp.swift; sourceTree = "<group>"; };
 		2586819D2C849CCC000905E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		258681A02C849CCC000905E2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		258681B12C849DCA000905E2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		258681B12C849DCA000905E2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		258681B42C849DDB000905E2 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		258681BD2C849EE5000905E2 /* View+rootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+rootViewController.swift"; sourceTree = "<group>"; };
 		258681BF2C849FE3000905E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +63,10 @@
 		258681E42C852A0D000905E2 /* ErrorRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorRes.swift; sourceTree = "<group>"; };
 		258681E62C852D59000905E2 /* SignInObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInObservable.swift; sourceTree = "<group>"; };
 		258681EB2C852DD0000905E2 /* BaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObservable.swift; sourceTree = "<group>"; };
+		25A7BF412C857FA5004782C9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		25A7BF432C858098004782C9 /* BoosterIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoosterIcons.swift; sourceTree = "<group>"; };
+		25A7BF472C8581CE004782C9 /* ExplorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorationView.swift; sourceTree = "<group>"; };
+		25FB98C82C8551D0007C349F /* TokenInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenInterceptor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +147,9 @@
 		258681B02C849DBD000905E2 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				258681B12C849DCA000905E2 /* MainView.swift */,
+				25A7BF452C85816D004782C9 /* Home */,
+				25A7BF462C8581B4004782C9 /* Exploration */,
+				25A7BF412C857FA5004782C9 /* MainView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -229,6 +239,7 @@
 				258681DF2C852965000905E2 /* Data */,
 				258681D52C852867000905E2 /* Extensions */,
 				258681DB2C852935000905E2 /* ResponseProtocol.swift */,
+				25FB98C82C8551D0007C349F /* TokenInterceptor.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -247,8 +258,25 @@
 			isa = PBXGroup;
 			children = (
 				258681EB2C852DD0000905E2 /* BaseObservable.swift */,
+				25A7BF432C858098004782C9 /* BoosterIcons.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		25A7BF452C85816D004782C9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				258681B12C849DCA000905E2 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		25A7BF462C8581B4004782C9 /* Exploration */ = {
+			isa = PBXGroup;
+			children = (
+				25A7BF472C8581CE004782C9 /* ExplorationView.swift */,
+			);
+			path = Exploration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,10 +362,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				258681B22C849DCA000905E2 /* MainView.swift in Sources */,
+				258681B22C849DCA000905E2 /* HomeView.swift in Sources */,
 				258681E32C852A06000905E2 /* BaseVoidRes.swift in Sources */,
 				258681E12C8529BA000905E2 /* Service.swift in Sources */,
 				258681B52C849DDB000905E2 /* SignInView.swift in Sources */,
+				25A7BF442C858098004782C9 /* BoosterIcons.swift in Sources */,
 				258681CF2C84A726000905E2 /* AppState.swift in Sources */,
 				258681E72C852D59000905E2 /* SignInObservable.swift in Sources */,
 				258681C82C84A35D000905E2 /* UserDefaultsType.swift in Sources */,
@@ -347,8 +376,11 @@
 				258681DC2C852935000905E2 /* ResponseProtocol.swift in Sources */,
 				258681D72C85286C000905E2 /* EndpointExt.swift in Sources */,
 				2586819A2C849CC9000905E2 /* Booster_iOSApp.swift in Sources */,
+				25A7BF422C857FA5004782C9 /* MainView.swift in Sources */,
 				258681D42C8527FC000905E2 /* Models.swift in Sources */,
+				25A7BF482C8581CE004782C9 /* ExplorationView.swift in Sources */,
 				258681E52C852A0D000905E2 /* ErrorRes.swift in Sources */,
+				25FB98C92C8551D0007C349F /* TokenInterceptor.swift in Sources */,
 				258681EC2C852DD0000905E2 /* BaseObservable.swift in Sources */,
 				258681D12C8527D0000905E2 /* AuthService.swift in Sources */,
 				258681DA2C852901000905E2 /* Result.swift in Sources */,

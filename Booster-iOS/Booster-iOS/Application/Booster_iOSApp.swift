@@ -19,6 +19,7 @@ struct Booster_iOSApp: App {
     
     init() {
         Wanted.register()
+        initColor()
     }
     
     var body: some Scene {
@@ -29,13 +30,28 @@ struct Booster_iOSApp: App {
                 timePickerProvider: timePickerProvider
             ) {
                 NavigationStack(path: $router.path) {
-                    if let accessToken = appState.accessToken {
+                    if appState.accessToken != nil {
                         MainView()
                     } else {
                         SignInView()
                     }
                 }
             }
+            .environmentObject(appState)
         }
+    }
+    
+    func initColor() {
+        CustomPalette.primary99 = Color(0xFFFFFAFA)
+        CustomPalette.primary95 = Color(0xFFFFE8E5)
+        CustomPalette.primary90 = Color(0xFFFFD2CC)
+        CustomPalette.primary80 = Color(0xFFFFA599)
+        CustomPalette.primary70 = Color(0xFFFF7866)
+        CustomPalette.primary60 = Color(0xFFFF6652)
+        CustomPalette.primary50 = Color(0xFFFF6652)
+        CustomPalette.primary40 = Color(0xFFFF6652)
+        CustomPalette.primary30 = Color(0xFFFF6652)
+        CustomPalette.primary20 = Color(0xFFFF6652)
+        CustomPalette.primary10 = Color(0xFFFF6652)
     }
 }

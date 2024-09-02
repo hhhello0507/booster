@@ -9,11 +9,11 @@ import Foundation
 
 final class SignInObservable: BaseObservable {
     
-    func googleSignIn(idToken: String) {
+    func googleSignIn(idToken: String, completion: @escaping (TokenRes) -> Void) {
         AuthService.shared.oAuth2SignIn(
             .init(platformType: .google, idToken: idToken)
         ).success { res in
-            print(res.data)
+            completion(res.data)
         }
         .observe(&subscriptions)
     }
