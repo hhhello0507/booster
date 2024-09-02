@@ -2,7 +2,7 @@ package com.bestswlkh0310.booster
 
 import com.bestswlkh0310.booster.api.auth.data.req.*
 import com.bestswlkh0310.booster.api.auth.data.res.TokenRes
-import com.bestswlkh0310.booster.api.core.data.BaseRes
+import com.bestswlkh0310.booster.api.core.data.res.BaseRes
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.MediaType

@@ -6,7 +6,7 @@ import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 
 class JwtUserDetails(
-    private val user: User
+    val user: User
 ) : UserDetails {
     override fun getAuthorities() = listOf(GrantedAuthority { user.role.name })
     override fun getPassword() = user.password

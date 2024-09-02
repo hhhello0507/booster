@@ -1,6 +1,6 @@
 package com.bestswlkh0310.booster.api.core.exception
 
-import com.bestswlkh0310.booster.api.core.data.BaseVoidRes
+import com.bestswlkh0310.booster.api.core.data.res.BaseVoidRes
 import com.bestswlkh0310.booster.global.exception.CustomException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

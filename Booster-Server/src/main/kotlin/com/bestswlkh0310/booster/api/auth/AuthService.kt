@@ -7,7 +7,7 @@ import com.bestswlkh0310.booster.api.auth.data.enumeration.JwtPayloadKey
 import com.bestswlkh0310.booster.foundation.user.UserRepository
 import com.bestswlkh0310.booster.foundation.user.data.entity.User
 import com.bestswlkh0310.booster.foundation.user.getByUsername
-import com.bestswlkh0310.booster.api.core.data.BaseRes
+import com.bestswlkh0310.booster.api.core.data.res.BaseRes
 import com.bestswlkh0310.booster.global.exception.CustomException
 import com.bestswlkh0310.booster.internal.oauth2.GoogleOAuth2Client
 import org.springframework.http.*
