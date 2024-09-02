@@ -12,10 +12,13 @@ enum BoosterBottomItem: BottomAppBarItem {
     
     case home
     case exploration
+    case my
+    
     var icon: Iconable {
         switch self {
         case .home: Icons.Feature.Home
-        case .exploration: Icons.Feature.Camera
+        case .exploration: Icons.ETC.Search
+        case .my: Icons.Feature.Person
         }
     }
     
@@ -23,18 +26,20 @@ enum BoosterBottomItem: BottomAppBarItem {
         switch self {
         case .home: "홈"
         case .exploration: "탐색"
+        case .my: "MY"
         }
     }
 }
 
 let data = [
     BoosterBottomItem.home,
-    BoosterBottomItem.exploration
+    BoosterBottomItem.exploration,
+    BoosterBottomItem.my
 ]
 
 struct MainView: View {
     
-    @StateObject private var explorationObservable = ExplorationObservable()
+    @StateObject private var explorationObservable = BoardObservable()
     @State private var selection = data[0]
     
     var body: some View {
@@ -44,6 +49,7 @@ struct MainView: View {
             switch selection {
             case .home: HomeView()
             case .exploration: ExplorationView()
+            case .my: EmptyView()
             }
         }
         .environmentObject(explorationObservable)

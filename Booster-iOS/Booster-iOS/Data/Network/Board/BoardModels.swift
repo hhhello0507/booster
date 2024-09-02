@@ -12,7 +12,7 @@ struct BoardRes: Response {
     let id: Int
     let content: String
     let author: UserRes
-    let createdAt: String
+    let createdAt: Date
 }
 
 // MARK: - Request

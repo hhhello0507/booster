@@ -10,7 +10,7 @@ import MyDesignSystem
 
 struct ExplorationView: View {
     
-    @EnvironmentObject private var observable: ExplorationObservable
+    @EnvironmentObject private var observable: BoardObservable
     
     var body: some View {
         MyTopAppBar.default(title: "탐색") {
@@ -30,6 +30,7 @@ struct ExplorationView: View {
                 Group {
                     if let boards = observable.boards {
                         BoardsContainer(for: boards)
+                            .padding(.bottom, 32)
                     } else {
                         ProgressView()
                     }

@@ -11,23 +11,32 @@ import MyDesignSystem
 struct BoardsContainer: View {
     
     private let columns: [GridItem] = [
-        .init(.flexible()),
         .init(.flexible())
     ]
     
     private let boards: [BoardRes]
+    private var leftBoards: [BoardRes] {
+        Array(boards[0..<(boards.count / 2)])
+    }
+    private var rightBoards: [BoardRes] {
+        Array(boards[(boards.count / 2)..<boards.count])
+    }
     
     init(for boards: [BoardRes]) {
         self.boards = boards
     }
     
     var body: some View {
-        LazyVGrid(columns: columns) {
-            ForEach(boards, id: \.id) {
-                Text("\($0.content)")
-                    .frame(minWidth: .infinity)
-                    .foreground(Colors.Label.normal)
-                    .background(Colors.Primary.normal)
+        HStack(alignment: .top, spacing: 10) {
+            LazyVGrid(columns: columns, spacing: 10) {
+                ForEach(leftBoards, id: \.id) {
+                    BoardCell(for: $0)
+                }
+            }
+            LazyVGrid(columns: columns, spacing: 10) {
+                ForEach(rightBoards, id: \.id) {
+                    BoardCell(for: $0)
+                }
             }
         }
     }
