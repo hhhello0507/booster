@@ -25,6 +25,10 @@ class BoardService(
             boardRepository.findWithPagination(req).toList()
                 .map(BoardRes::of)
         )
+    
+    fun getMyBoards() = BaseRes.ok(
+        userHolder.current().boards
+    )
 
     fun createBoard(req: CreateBoardReq): BaseRes<Board> {
         val entity = Board(

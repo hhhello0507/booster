@@ -8,6 +8,7 @@ data class BoardRes(
     val id: Long,
     val content: String,
     val author: UserRes,
+    val boostCount: Int,
     val createdAt: LocalDateTime
 ) {
     companion object {
@@ -15,6 +16,7 @@ data class BoardRes(
             id = board.id,
             content = board.content,
             author = UserRes.of(board.author),
+            boostCount = board.boosts.sumOf { it.count },
             createdAt = board.createdAt,
         )
     }

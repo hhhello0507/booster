@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250B8B962C85DC0A007D8889 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B8B952C85DC0A007D8889 /* MyView.swift */; };
 		2586819A2C849CC9000905E2 /* Booster_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681992C849CC9000905E2 /* Booster_iOSApp.swift */; };
 		2586819E2C849CCC000905E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2586819D2C849CCC000905E2 /* Assets.xcassets */; };
 		258681A12C849CCC000905E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 258681A02C849CCC000905E2 /* Preview Assets.xcassets */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		250B8B952C85DC0A007D8889 /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		258681962C849CC9000905E2 /* Booster-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Booster-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		258681992C849CC9000905E2 /* Booster_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booster_iOSApp.swift; sourceTree = "<group>"; };
 		2586819D2C849CCC000905E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250B8B942C85DC02007D8889 /* My */ = {
+			isa = PBXGroup;
+			children = (
+				250B8B952C85DC0A007D8889 /* MyView.swift */,
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
 		2586818D2C849CC9000905E2 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +172,7 @@
 				25A7BF592C85CFFA004782C9 /* Observable */,
 				25A7BF452C85816D004782C9 /* Home */,
 				25A7BF462C8581B4004782C9 /* Exploration */,
+				250B8B942C85DC02007D8889 /* My */,
 				25A7BF412C857FA5004782C9 /* MainView.swift */,
 			);
 			path = Main;
@@ -416,6 +427,7 @@
 				25A7BF4E2C85B723004782C9 /* BoardModels.swift in Sources */,
 				258681E12C8529BA000905E2 /* Service.swift in Sources */,
 				258681B52C849DDB000905E2 /* SignInView.swift in Sources */,
+				250B8B962C85DC0A007D8889 /* MyView.swift in Sources */,
 				25A7BF5B2C85D327004782C9 /* View+cardStyle.swift in Sources */,
 				25A7BF442C858098004782C9 /* BoosterIcons.swift in Sources */,
 				258681CF2C84A726000905E2 /* AppState.swift in Sources */,

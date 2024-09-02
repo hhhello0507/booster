@@ -37,9 +37,9 @@ struct HomeView: View {
                         Spacer()
                     }
                     .background(Colors.Background.normal)
+                    .cardStyle()
                 }
                 .scaledButton()
-                .cardStyle()
                 VStack(alignment: .leading, spacing: 15) {
                     Text("Today")
                         .font(.wanted(.Bold, size: 36))

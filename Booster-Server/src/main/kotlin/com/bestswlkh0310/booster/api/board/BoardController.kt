@@ -3,6 +3,7 @@ package com.bestswlkh0310.booster.api.board
 import com.bestswlkh0310.booster.api.board.data.req.CreateBoardReq
 import jakarta.validation.Valid
 import org.springframework.data.domain.Pageable
+import org.springframework.data.domain.Sort
 import org.springframework.data.web.PageableDefault
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -17,9 +18,13 @@ class BoardController(
         @PageableDefault(
             size = 15,
             page = 0,
-            sort = ["createdAt"]
+            sort = ["createdAt"],
+            direction = Sort.Direction.DESC
         ) req: Pageable
     ) = boardService.getAll(req = req)
+    
+    @GetMapping("/me")
+    fun getMyBoard() = boardService.getMyBoards()
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

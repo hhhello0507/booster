@@ -14,7 +14,6 @@ interface BoardRepository : JpaRepository<Board, Long> {
     @Query("SELECT b FROM board b")
     fun findWithPagination(pageable: Pageable): Page<Board>
     fun deleteByAuthorId(authorId: Long)
-    
 }
 
 fun BoardRepository.getBy(id: Long) =
