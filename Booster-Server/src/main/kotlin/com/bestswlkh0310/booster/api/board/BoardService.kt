@@ -1,11 +1,13 @@
 package com.bestswlkh0310.booster.api.board
 
 import com.bestswlkh0310.booster.api.board.data.req.CreateBoardReq
+import com.bestswlkh0310.booster.api.board.data.res.BoardRes
 import com.bestswlkh0310.booster.api.core.data.res.BaseRes
 import com.bestswlkh0310.booster.api.core.data.res.BaseVoidRes
 import com.bestswlkh0310.booster.api.core.security.support.UserHolder
 import com.bestswlkh0310.booster.foundation.board.BoardRepository
 import com.bestswlkh0310.booster.foundation.board.data.entity.Board
+import com.bestswlkh0310.booster.foundation.board.getBy
 import com.bestswlkh0310.booster.foundation.user.UserRepository
 import com.bestswlkh0310.booster.global.exception.CustomException
 import org.springframework.data.domain.Pageable
@@ -18,9 +20,10 @@ class BoardService(
     private val userRepository: UserRepository,
     private val userHolder: UserHolder
 ) {
-    fun getAll(req: Pageable) =
+    fun getAll(req: Pageable): BaseRes<List<BoardRes>> =
         BaseRes.ok(
-            boardRepository.findWithPagination(req)
+            boardRepository.findWithPagination(req).toList()
+                .map(BoardRes::of)
         )
 
     fun createBoard(req: CreateBoardReq): BaseRes<Board> {
@@ -34,9 +37,11 @@ class BoardService(
     }
 
     fun deleteBoard(boardId: Long): BaseVoidRes {
-        if (userHolder.current().id != boardId) {
+        val board = boardRepository.getBy(boardId)
+        if (userHolder.current().id != board.author.id) {
             throw CustomException(HttpStatus.FORBIDDEN, "Invalid permission")
         }
+        
         boardRepository.deleteById(boardId)
         return BaseVoidRes.ok()
     }

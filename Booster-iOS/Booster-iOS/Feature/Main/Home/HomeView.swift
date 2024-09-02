@@ -29,7 +29,7 @@ struct HomeView: View {
                                 .clipShape(Circle())
                             Text("100")
                                 .myFont(.headlineB)
-                                .foreground(Colors.)
+//                                .foreground(Colors.)
                         }
                     }
                 }
