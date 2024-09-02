@@ -19,8 +19,8 @@ class Board(
     @JoinColumn(name = "fk_user_id", nullable = false)
     val author: User,
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "board")
-    val boosts: List<Boost> = listOf(),
+    @Column(nullable = false)
+    var boostCount: Int = 0,
 
     @Column(nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")

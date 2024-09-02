@@ -11,6 +11,7 @@ import MyShared
 
 struct HomeView: View {
     
+    @AppState private var app
     @EnvironmentObject private var dialogProvider: DialogProvider
     @EnvironmentObject private var observable: BoardObservable
     @FocusState private var contentFocus
@@ -31,9 +32,11 @@ struct HomeView: View {
                             .frame(width: 28, height: 28)
                             .padding(2)
                             .clipShape(Circle())
-                        Text("100")
-                            .myFont(.headlineR)
-                            .foreground(Colors.Label.assistive)
+                        if let boostCount = app.user?.boostCount {
+                            Text("\(boostCount)")
+                                .myFont(.headlineR)
+                                .foreground(Colors.Label.assistive)
+                        }
                         Spacer()
                     }
                     .background(Colors.Background.normal)

@@ -65,7 +65,7 @@ final class TokenInterceptor: Moya.RequestInterceptor {
             .init(refreshToken: refreshToken)
         ).success { res in
             print("✅ AuthInterceptor - Refresh Success")
-            let accessToken = String(res.data.accessToken.split(separator: " ")[1])
+            let accessToken = res.data.accessToken
             MySign.reissue(accessToken)
             completion(.retry)
         }.failure { err in

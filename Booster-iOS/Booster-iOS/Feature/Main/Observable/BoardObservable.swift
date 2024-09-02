@@ -25,6 +25,7 @@ final class BoardObservable: BaseObservable<BoardObservable.Effect> {
         BoardService.shared.getAll(
             .init(size: 30, page: 0)
         ).success { res in
+            print("Success")
             self.boards = res.data
         }.failure { err in
             if case .refreshFailure = err {

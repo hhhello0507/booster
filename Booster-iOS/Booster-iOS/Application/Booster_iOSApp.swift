@@ -15,7 +15,7 @@ struct Booster_iOSApp: App {
     @State private var timePickerProvider = TimePickerProvider()
     @State private var datePickerProvider = DatePickerProvider()
     @StateObject private var router = Router()
-    @StateObject private var appState = AppState()
+    @StateObject private var app = AppObservable()
     
     init() {
         Wanted.register()
@@ -30,14 +30,14 @@ struct Booster_iOSApp: App {
                 timePickerProvider: timePickerProvider
             ) {
                 NavigationStack(path: $router.path) {
-                    if appState.accessToken != nil {
+                    if app.accessToken != nil {
                         MainView()
                     } else {
                         SignInView()
                     }
                 }
             }
-            .environmentObject(appState)
+            .environmentObject(app)
         }
     }
     

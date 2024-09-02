@@ -11,7 +11,7 @@ class BoostController(
     private val boostService: BoostService
 ) {
     @PostMapping
-    fun postBoost(
+    fun createBoost(
         @RequestParam("boardId") boardId: Long
-    ) = boostService.postBoost(boardId)
+    ) = boostService.createBoost(boardId)
 }

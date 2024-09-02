@@ -6,6 +6,7 @@ import com.bestswlkh0310.booster.api.core.data.res.BaseRes
 import com.bestswlkh0310.booster.api.core.data.res.BaseVoidRes
 import com.bestswlkh0310.booster.api.core.security.support.UserHolder
 import com.bestswlkh0310.booster.foundation.board.BoardRepository
+import com.bestswlkh0310.booster.foundation.board.QueryDslBoardRepository
 import com.bestswlkh0310.booster.foundation.board.data.entity.Board
 import com.bestswlkh0310.booster.foundation.board.getBy
 import com.bestswlkh0310.booster.foundation.user.UserRepository
@@ -17,17 +18,19 @@ import org.springframework.stereotype.Service
 @Service
 class BoardService(
     private val boardRepository: BoardRepository,
+    private val queryDslBoardRepository: QueryDslBoardRepository,
     private val userRepository: UserRepository,
     private val userHolder: UserHolder
 ) {
     fun getAll(req: Pageable): BaseRes<List<BoardRes>> =
         BaseRes.ok(
-            boardRepository.findWithPagination(req).toList()
-                .map(BoardRes::of)
+            queryDslBoardRepository.getBoard(req)
         )
     
     fun getMyBoards() = BaseRes.ok(
-        userHolder.current().boards
+        boardRepository.findByAuthorId(
+            userHolder.current().id
+        )
     )
 
     fun createBoard(req: CreateBoardReq): BaseRes<Board> {

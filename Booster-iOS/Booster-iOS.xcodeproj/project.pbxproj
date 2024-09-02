@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		250B8B962C85DC0A007D8889 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B8B952C85DC0A007D8889 /* MyView.swift */; };
+		250B8B992C85E920007D8889 /* BoostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B8B982C85E920007D8889 /* BoostService.swift */; };
+		250B8B9B2C85E966007D8889 /* BoostModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B8B9A2C85E966007D8889 /* BoostModels.swift */; };
+		250B8BA32C85EA51007D8889 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B8BA22C85EA51007D8889 /* UserService.swift */; };
 		2586819A2C849CC9000905E2 /* Booster_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681992C849CC9000905E2 /* Booster_iOSApp.swift */; };
 		2586819E2C849CCC000905E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2586819D2C849CCC000905E2 /* Assets.xcassets */; };
 		258681A12C849CCC000905E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 258681A02C849CCC000905E2 /* Preview Assets.xcassets */; };
@@ -22,7 +25,7 @@
 		258681C32C84A0E1000905E2 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681C22C84A0E1000905E2 /* Router.swift */; };
 		258681C82C84A35D000905E2 /* UserDefaultsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681C72C84A35D000905E2 /* UserDefaultsType.swift */; };
 		258681CC2C84A463000905E2 /* SignKit in Frameworks */ = {isa = PBXBuildFile; productRef = 258681CB2C84A463000905E2 /* SignKit */; };
-		258681CF2C84A726000905E2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681CE2C84A726000905E2 /* AppState.swift */; };
+		258681CF2C84A726000905E2 /* AppObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681CE2C84A726000905E2 /* AppObservable.swift */; };
 		258681D12C8527D0000905E2 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681D02C8527D0000905E2 /* AuthService.swift */; };
 		258681D42C8527FC000905E2 /* AuthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681D32C8527FC000905E2 /* AuthModels.swift */; };
 		258681D72C85286C000905E2 /* EndpointExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681D62C85286C000905E2 /* EndpointExt.swift */; };
@@ -48,6 +51,9 @@
 
 /* Begin PBXFileReference section */
 		250B8B952C85DC0A007D8889 /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
+		250B8B982C85E920007D8889 /* BoostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostService.swift; sourceTree = "<group>"; };
+		250B8B9A2C85E966007D8889 /* BoostModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostModels.swift; sourceTree = "<group>"; };
+		250B8BA22C85EA51007D8889 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		258681962C849CC9000905E2 /* Booster-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Booster-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		258681992C849CC9000905E2 /* Booster_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booster_iOSApp.swift; sourceTree = "<group>"; };
 		2586819D2C849CCC000905E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,7 +65,7 @@
 		258681C02C84A07D000905E2 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		258681C22C84A0E1000905E2 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		258681C72C84A35D000905E2 /* UserDefaultsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsType.swift; sourceTree = "<group>"; };
-		258681CE2C84A726000905E2 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		258681CE2C84A726000905E2 /* AppObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppObservable.swift; sourceTree = "<group>"; };
 		258681D02C8527D0000905E2 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		258681D32C8527FC000905E2 /* AuthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModels.swift; sourceTree = "<group>"; };
 		258681D62C85286C000905E2 /* EndpointExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointExt.swift; sourceTree = "<group>"; };
@@ -108,6 +114,15 @@
 			path = My;
 			sourceTree = "<group>";
 		};
+		250B8B972C85E91C007D8889 /* Boost */ = {
+			isa = PBXGroup;
+			children = (
+				250B8B982C85E920007D8889 /* BoostService.swift */,
+				250B8B9A2C85E966007D8889 /* BoostModels.swift */,
+			);
+			path = Boost;
+			sourceTree = "<group>";
+		};
 		2586818D2C849CC9000905E2 = {
 			isa = PBXGroup;
 			children = (
@@ -151,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				258681992C849CC9000905E2 /* Booster_iOSApp.swift */,
-				258681CD2C84A71D000905E2 /* Observable */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -217,6 +231,7 @@
 		258681C52C84A355000905E2 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				250B8B972C85E91C007D8889 /* Boost */,
 				25A7BF562C85C82D004782C9 /* User */,
 				25A7BF492C85B6FF004782C9 /* Board */,
 				258681D22C8527F5000905E2 /* Auth */,
@@ -237,7 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				258681C22C84A0E1000905E2 /* Router.swift */,
-				258681CE2C84A726000905E2 /* AppState.swift */,
+				258681CE2C84A726000905E2 /* AppObservable.swift */,
 			);
 			path = Observable;
 			sourceTree = "<group>";
@@ -283,6 +298,7 @@
 		258681EA2C852DCC000905E2 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				258681CD2C84A71D000905E2 /* Observable */,
 				258681EB2C852DD0000905E2 /* BaseObservable.swift */,
 				25A7BF432C858098004782C9 /* BoosterIcons.swift */,
 			);
@@ -327,6 +343,7 @@
 		25A7BF562C85C82D004782C9 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				250B8BA22C85EA51007D8889 /* UserService.swift */,
 				25A7BF572C85C833004782C9 /* UserModels.swift */,
 			);
 			path = User;
@@ -430,9 +447,10 @@
 				250B8B962C85DC0A007D8889 /* MyView.swift in Sources */,
 				25A7BF5B2C85D327004782C9 /* View+cardStyle.swift in Sources */,
 				25A7BF442C858098004782C9 /* BoosterIcons.swift in Sources */,
-				258681CF2C84A726000905E2 /* AppState.swift in Sources */,
+				258681CF2C84A726000905E2 /* AppObservable.swift in Sources */,
 				25A7BF582C85C833004782C9 /* UserModels.swift in Sources */,
 				258681E72C852D59000905E2 /* SignInObservable.swift in Sources */,
+				250B8B9B2C85E966007D8889 /* BoostModels.swift in Sources */,
 				258681C82C84A35D000905E2 /* UserDefaultsType.swift in Sources */,
 				258681BE2C849EE5000905E2 /* View+rootViewController.swift in Sources */,
 				258681C32C84A0E1000905E2 /* Router.swift in Sources */,
@@ -450,6 +468,8 @@
 				25A7BF5F2C85D966004782C9 /* DateExt.swift in Sources */,
 				258681D12C8527D0000905E2 /* AuthService.swift in Sources */,
 				25A7BF4B2C85B70C004782C9 /* BoardService.swift in Sources */,
+				250B8BA32C85EA51007D8889 /* UserService.swift in Sources */,
+				250B8B992C85E920007D8889 /* BoostService.swift in Sources */,
 				25A7BF552C85BA91004782C9 /* BoardsContainer.swift in Sources */,
 				258681DA2C852901000905E2 /* Result.swift in Sources */,
 			);

@@ -6,7 +6,7 @@ import com.bestswlkh0310.booster.foundation.boost.data.entity.Boost
 import com.bestswlkh0310.booster.foundation.user.data.enumeration.UserRole
 import jakarta.persistence.*
 
-@Entity(name = "`user`")
+@Entity(name = "user")
 class User(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
@@ -24,13 +24,10 @@ class User(
     @Enumerated(EnumType.STRING)
     val role: UserRole = UserRole.USER,
 
-    @OneToMany(cascade = [(CascadeType.ALL)], orphanRemoval = true, fetch = FetchType.LAZY, mappedBy = "author")
-    val boards: List<Board> = listOf(),
-
-    @OneToMany(cascade = [(CascadeType.ALL)], orphanRemoval = true, fetch = FetchType.LAZY, mappedBy = "user")
-    val boost: List<Boost> = listOf(),
-
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    val platformType: PlatformType = PlatformType.DEFAULT
+    val platformType: PlatformType = PlatformType.DEFAULT,
+    
+    @Column(nullable = false)
+    var boostCount: Int = 0,
 )

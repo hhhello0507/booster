@@ -6,8 +6,21 @@
 //
 
 import Foundation
+import SwiftUI
 
-final class AppState: ObservableObject {
+@propertyWrapper
+struct AppState: DynamicProperty {
+    
+    @EnvironmentObject private var appObservable: AppObservable
+    
+    var wrappedValue: AppObservable {
+        appObservable
+    }
+}
+
+final class AppObservable: BaseObservable<AppObservable.Effect> {
+    enum Effect {}
+    
     @Published var accessToken: String? = MySign.accessToken {
         didSet {
             if let accessToken {
@@ -21,5 +34,15 @@ final class AppState: ObservableObject {
                 MySign.login(id: "", password: "", accessToken: accessToken, refreshToken: refreshToken)
             }
         }
+    }
+    
+    @Published var user: UserRes?
+    
+    func fetchUser() {
+        UserService.shared.getMe()
+            .success { res in
+                self.user = res.data
+            }
+            .observe(&subscriptions)
     }
 }

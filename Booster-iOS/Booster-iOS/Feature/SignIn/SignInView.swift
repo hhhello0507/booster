@@ -12,7 +12,7 @@ import GoogleSignInSwift
 
 struct SignInView: View {
     
-    @EnvironmentObject private var appState: AppState
+    @AppState private var app
     @StateObject private var observable = SignInObservable()
     
     var body: some View {
@@ -44,8 +44,8 @@ struct SignInView: View {
                         return
                     }
                     observable.googleSignIn(idToken: idToken) { token in
-                        appState.accessToken = token.accessToken
-                        appState.refreshToken = token.refreshToken
+                        app.accessToken = token.accessToken
+                        app.refreshToken = token.refreshToken
                     }
                 }
             }

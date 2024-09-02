@@ -11,4 +11,5 @@ struct UserRes: Response {
     let id: Int
     let username: String
     let nickname: String
+    let boostCount: Int
 }

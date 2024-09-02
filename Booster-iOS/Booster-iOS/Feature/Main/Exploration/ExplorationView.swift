@@ -10,6 +10,7 @@ import MyDesignSystem
 
 struct ExplorationView: View {
     
+    @AppState private var app
     @EnvironmentObject private var observable: BoardObservable
     
     var body: some View {
@@ -20,9 +21,11 @@ struct ExplorationView: View {
                         .renderingMode(.template)
                         .foreground(Colors.Primary.normal)
                         .frame(width: 24, height: 24)
-                    Text("100")
-                        .myFont(.bodyM)
-                        .foreground(Colors.Label.assistive)
+                    if let boostCount = app.user?.boostCount {
+                        Text("\(boostCount)")
+                            .myFont(.bodyM)
+                            .foreground(Colors.Label.assistive)
+                    }
                 }
                 .padding(.trailing, 15)
         } content: { insets in
