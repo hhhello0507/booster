@@ -15,6 +15,7 @@ struct SignInView: View {
     @AppState private var app
     @StateObject private var observable = SignInObservable()
     @StateObject private var appleSignInObservable = AppleSignInObservable()
+    @EnvironmentObject private var dialog: DialogProvider
     
     var body: some View {
         VStack(spacing: 10) {
@@ -43,7 +44,11 @@ struct SignInView: View {
                 }
             }
             GoogleSignInButton {
-                GIDSignIn.sharedInstance.signIn(withPresenting: UIApplicationUtil.rootViewController!) { result, err in
+                guard let presentingVC = UIApplicationUtil.rootViewController else {
+                    handleSignInFailure()
+                    return
+                }
+                GIDSignIn.sharedInstance.signIn(withPresenting: presentingVC) { result, err in
                     if let err {
                         print("sign in error - \(err)")
                         handleSignInFailure()
@@ -72,7 +77,9 @@ struct SignInView: View {
     }
     
     func handleSignInFailure() {
-        
+        dialog.present(
+            .init(title: "로그인 실패")
+        )
     }
 }
 

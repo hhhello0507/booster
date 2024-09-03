@@ -13,9 +13,13 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 //@TestAnnotation
 class BoosterApplicationTests {
 
+    init {
+        Environment.initEnvironment()
+    }
+
     @Autowired
     lateinit var mvc: MockMvc
-    
+
     // 유저가 없는 경우
     @Test
     fun signIn1() {
@@ -23,7 +27,7 @@ class BoosterApplicationTests {
             MockMvcRequestBuilders.post("/auth/sign-in")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
-                    SignInReq(username = "", password = "").toJson()
+                    SignInReq(username = "12", password = "12").toJson()
                 )
         ).andExpect(MockMvcResultMatchers.status().`is`(404))
             .andReturn().response.contentAsString
@@ -37,7 +41,7 @@ class BoosterApplicationTests {
             MockMvcRequestBuilders.post("/auth/sign-up")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
-                    SignUpReq(username = "", password = "1", passwordCheck = "", nickname = "").toJson()
+                    SignUpReq(username = "12", password = "12", passwordCheck = "123", nickname = "12").toJson()
                 )
         ).andExpect(MockMvcResultMatchers.status().`is`(400))
             .andReturn().response.contentAsString
@@ -50,7 +54,7 @@ class BoosterApplicationTests {
             MockMvcRequestBuilders.post("/auth/sign-up")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
-                    SignUpReq(username = "", password = "1", passwordCheck = "1", nickname = "").toJson()
+                    SignUpReq(username = "12", password = "12", passwordCheck = "12", nickname = "12").toJson()
                 )
         ).andExpect(MockMvcResultMatchers.status().isOk)
             .andReturn().response.contentAsString
@@ -60,7 +64,7 @@ class BoosterApplicationTests {
             MockMvcRequestBuilders.post("/auth/sign-in")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
-                    SignInReq(username = "", password = "1").toJson()
+                    SignInReq(username = "12", password = "12").toJson()
                 )
         ).andExpect(MockMvcResultMatchers.status().isOk)
             .andReturn().response.contentAsString
@@ -73,7 +77,7 @@ class BoosterApplicationTests {
             MockMvcRequestBuilders.post("/auth/sign-up")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
-                    SignUpReq(username = "", password = "1", passwordCheck = "1", nickname = "").toJson()
+                    SignUpReq(username = "12", password = "12", passwordCheck = "12", nickname = "12").toJson()
                 )
         ).andExpect(MockMvcResultMatchers.status().isOk)
             .andReturn().response.contentAsString
@@ -83,7 +87,7 @@ class BoosterApplicationTests {
             MockMvcRequestBuilders.post("/auth/sign-in")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
-                    SignInReq(username = "", password = "1").toJson()
+                    SignInReq(username = "12", password = "12").toJson()
                 )
         ).andExpect(MockMvcResultMatchers.status().isOk)
             .andReturn().response.contentAsString
@@ -106,7 +110,7 @@ class BoosterApplicationTests {
             MockMvcRequestBuilders.post("/auth/sign-up")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
-                    SignUpReq(username = "", password = "1", passwordCheck = "1", nickname = "").toJson()
+                    SignUpReq(username = "12", password = "12", passwordCheck = "12", nickname = "12").toJson()
                 )
         ).andExpect(MockMvcResultMatchers.status().isOk)
             .andReturn().response.contentAsString
@@ -116,7 +120,7 @@ class BoosterApplicationTests {
             MockMvcRequestBuilders.post("/auth/sign-in")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
-                    SignInReq(username = "", password = "1").toJson()
+                    SignInReq(username = "12", password = "12").toJson()
                 )
         ).andExpect(MockMvcResultMatchers.status().isOk)
             .andReturn().response.contentAsString

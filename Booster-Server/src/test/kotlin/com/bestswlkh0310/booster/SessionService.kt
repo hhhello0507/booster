@@ -14,7 +14,7 @@ fun MockMvc.session(): TokenRes {
         MockMvcRequestBuilders.post("/auth/sign-up")
             .contentType(MediaType.APPLICATION_JSON)
             .content(
-                SignUpReq(username = "", password = "1", passwordCheck = "1", nickname = "").toJson()
+                SignUpReq(username = "12", password = "12", passwordCheck = "12", nickname = "12").toJson()
             )
     ).andExpect(MockMvcResultMatchers.status().isOk)
         .andReturn().response.contentAsString
@@ -24,7 +24,7 @@ fun MockMvc.session(): TokenRes {
         MockMvcRequestBuilders.post("/auth/sign-in")
             .contentType(MediaType.APPLICATION_JSON)
             .content(
-                SignInReq(username = "", password = "1").toJson()
+                SignInReq(username = "12", password = "12").toJson()
             )
     ).andExpect(MockMvcResultMatchers.status().isOk)
         .andReturn().response.contentAsString

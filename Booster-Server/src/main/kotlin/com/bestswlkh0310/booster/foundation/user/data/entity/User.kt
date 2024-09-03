@@ -4,7 +4,7 @@ import com.bestswlkh0310.booster.api.auth.data.enumeration.PlatformType
 import com.bestswlkh0310.booster.foundation.user.data.enumeration.UserRole
 import jakarta.persistence.*
 
-@Entity(name = "user")
+@Entity(name = "tbl_user")
 class User(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 

@@ -4,7 +4,7 @@ import com.bestswlkh0310.booster.foundation.user.data.entity.User
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
-@Entity(name = "board")
+@Entity(name = "tbl_board")
 class Board(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

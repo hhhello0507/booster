@@ -5,7 +5,7 @@ import com.bestswlkh0310.booster.foundation.user.data.entity.User
 import jakarta.persistence.*
 import java.time.LocalDateTime
 
-@Entity(name = "boost")
+@Entity(name = "tbl_boost")
 class Boost(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
