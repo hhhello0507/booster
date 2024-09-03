@@ -12,8 +12,8 @@ import MyMoya
 final class BoostService: Service<BoostEndpoint> {
     static let shared = BoostService(allowLog: true)
     
-    func postBoost(_ req: PostBoostReq) -> ObservableResult<BaseVoidRes> {
-        performRequest(.postBoost(req), res: BaseVoidRes.self).observe()
+    func createBoost(_ req: PostBoostReq) -> ObservableResult<BaseRes<BoardRes>> {
+        performRequest(.postBoost(req), res: BaseRes<BoardRes>.self).observe()
     }
 }
 
@@ -30,7 +30,7 @@ enum BoostEndpoint: MyMoya.Endpoint {
     var route: (Moya.Method, String, Moya.Task) {
         switch self {
         case .postBoost(let req):
-                .post - "" - req.toURLParameters()
+                .post - "" - req.toJSONParameters()
         }
     }
 }

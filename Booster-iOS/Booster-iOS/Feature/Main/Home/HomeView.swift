@@ -39,7 +39,6 @@ struct HomeView: View {
                         }
                         Spacer()
                     }
-                    .background(Colors.Background.normal)
                     .cardStyle()
                 }
                 .scaledButton()

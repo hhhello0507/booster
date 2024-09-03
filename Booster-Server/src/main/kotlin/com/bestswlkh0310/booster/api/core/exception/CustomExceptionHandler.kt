@@ -5,6 +5,7 @@ import com.bestswlkh0310.booster.global.exception.CustomException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.HttpRequestMethodNotSupportedException
+import org.springframework.web.bind.MissingServletRequestParameterException
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import org.springframework.web.context.request.WebRequest
@@ -46,6 +47,15 @@ class CustomExceptionHandler {
         return createErrorResponse(
             status = HttpStatus.INTERNAL_SERVER_ERROR,
             message = HttpStatus.INTERNAL_SERVER_ERROR.reasonPhrase,
+        )
+    }
+    
+    @ExceptionHandler(MissingServletRequestParameterException::class)
+    fun handleMissingServletRequestParameterException(exception: MissingServletRequestParameterException): ResponseEntity<BaseVoidRes> {
+        exception.printStackTrace()
+        return createErrorResponse(
+            status = HttpStatus.BAD_REQUEST,
+            message = HttpStatus.BAD_REQUEST.reasonPhrase,
         )
     }
 

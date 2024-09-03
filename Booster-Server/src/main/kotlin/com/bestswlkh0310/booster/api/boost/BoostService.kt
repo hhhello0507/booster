@@ -1,5 +1,8 @@
 package com.bestswlkh0310.booster.api.boost
 
+import com.bestswlkh0310.booster.api.board.data.res.BoardRes
+import com.bestswlkh0310.booster.api.boost.data.req.CreateBoostReq
+import com.bestswlkh0310.booster.api.core.data.res.BaseRes
 import com.bestswlkh0310.booster.api.core.data.res.BaseVoidRes
 import com.bestswlkh0310.booster.api.core.security.support.UserHolder
 import com.bestswlkh0310.booster.foundation.board.BoardRepository
@@ -22,18 +25,18 @@ class BoostService(
     private val userRepository: UserRepository
 ) {
     @Transactional
-    fun createBoost(boardId: Long): BaseVoidRes {
+    fun createBoost(req: CreateBoostReq): BaseRes<BoardRes> {
         val user = userHolder.current()
-        val board = boardRepository.getBy(boardId)
+        val board = boardRepository.getBy(req.boardId)
         val exists = boostRepository.existsByUserIdAndBoardId(
-            boardId = boardId,
+            boardId = req.boardId,
             userId = user.id
         )
 
         if (exists) {
             throw CustomException(HttpStatus.BAD_REQUEST, "User already create boost")
         }
-        
+
         val addBoostCount = Random.nextInt(10..<20)
         boostRepository.save(
             Boost(
@@ -42,13 +45,18 @@ class BoostService(
                 board = board
             )
         )
-        
+
         board.boostCount += addBoostCount
         user.boostCount += addBoostCount
-        
+
         userRepository.save(user)
         boardRepository.save(board)
-        
-        return BaseVoidRes.ok()
+
+        return BaseRes.ok(
+            BoardRes.of(
+                board = board,
+                boosted = true
+            )
+        )
     }
 }

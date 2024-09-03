@@ -12,9 +12,14 @@ import MyShared
 struct BoardCell: View {
     
     private let board: BoardRes
+    private let action: () -> Void
     
-    init(for board: BoardRes) {
+    init(
+        for board: BoardRes,
+        action: @escaping () -> Void
+    ) {
         self.board = board
+        self.action = action
     }
     
     var body: some View {
@@ -31,5 +36,11 @@ struct BoardCell: View {
         .foreground(Colors.Label.normal)
         .background(Colors.Background.normal)
         .cornerRadius(12, corners: .allCorners)
+        .if(board.boosted) {
+            $0.stroke(0, color: Colors.Label.normal)
+        }
+        .onTapGesture {
+            action()
+        }
     }
 }

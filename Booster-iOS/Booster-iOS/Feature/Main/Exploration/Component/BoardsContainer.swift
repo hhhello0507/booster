@@ -10,11 +10,17 @@ import MyDesignSystem
 
 struct BoardsContainer: View {
     
+    enum Action {
+        case cell(BoardRes)
+    }
+    
     private let columns: [GridItem] = [
         .init(.flexible())
     ]
     
     private let boards: [BoardRes]
+    private let action: (Action) -> Void
+    
     private var leftBoards: [BoardRes] {
         Array(boards[0..<(boards.count / 2)])
     }
@@ -22,20 +28,26 @@ struct BoardsContainer: View {
         Array(boards[(boards.count / 2)..<boards.count])
     }
     
-    init(for boards: [BoardRes]) {
+    init(
+        for boards: [BoardRes],
+        action: @escaping (Action) -> Void
+    ) {
         self.boards = boards
+        self.action = action
     }
     
     var body: some View {
         HStack(alignment: .top, spacing: 10) {
-            LazyVGrid(columns: columns, spacing: 10) {
-                ForEach(leftBoards, id: \.id) {
-                    BoardCell(for: $0)
-                }
-            }
-            LazyVGrid(columns: columns, spacing: 10) {
-                ForEach(rightBoards, id: \.id) {
-                    BoardCell(for: $0)
+            makeBoards(data: leftBoards)
+            makeBoards(data: rightBoards)
+        }
+    }
+    
+    func makeBoards(data boards: [BoardRes]) -> some View {
+        LazyVStack(spacing: 10) {
+            ForEach(boards, id: \.id) { board in
+                BoardCell(for: board) {
+                    action(.cell(board))
                 }
             }
         }

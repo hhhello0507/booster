@@ -25,7 +25,6 @@ final class BoardObservable: BaseObservable<BoardObservable.Effect> {
         BoardService.shared.getAll(
             .init(size: 30, page: 0)
         ).success { res in
-            print("Success")
             self.boards = res.data
         }.failure { err in
             if case .refreshFailure = err {
@@ -47,6 +46,23 @@ final class BoardObservable: BaseObservable<BoardObservable.Effect> {
             self.emit(.createBoardFailure)
         }.finished {
             self.creatingContent = false
+        }.observe(&subscriptions)
+    }
+    
+    func createBoost(boardId: Int) {
+        BoostService.shared.createBoost(
+            .init(boardId: boardId)
+        ).success { res in
+            guard var boards = self.boards else {
+                return
+            }
+            let updatedBoard = res.data
+            if let index = boards.firstIndex(where: { $0.id == updatedBoard.id }) {
+                boards[index] = updatedBoard
+                self.boards = boards
+            }
+        }.failure { err in
+            
         }.observe(&subscriptions)
     }
 }

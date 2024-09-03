@@ -21,7 +21,7 @@ class BoardController(
             sort = ["createdAt"],
             direction = Sort.Direction.DESC
         ) req: Pageable
-    ) = boardService.getAll(req = req)
+    ) = boardService.getAll(pageable = req)
     
     @GetMapping("/me")
     fun getMyBoard() = boardService.getMyBoards()

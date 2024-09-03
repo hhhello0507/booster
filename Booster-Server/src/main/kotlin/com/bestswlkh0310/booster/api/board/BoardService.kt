@@ -22,9 +22,12 @@ class BoardService(
     private val userRepository: UserRepository,
     private val userHolder: UserHolder
 ) {
-    fun getAll(req: Pageable): BaseRes<List<BoardRes>> =
+    fun getAll(pageable: Pageable): BaseRes<List<BoardRes>> =
         BaseRes.ok(
-            queryDslBoardRepository.getBoard(req)
+            queryDslBoardRepository.getBoard(
+                pageable = pageable,
+                userId = userHolder.current().id
+            )
         )
     
     fun getMyBoards() = BaseRes.ok(

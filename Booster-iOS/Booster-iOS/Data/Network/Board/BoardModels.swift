@@ -13,6 +13,7 @@ struct BoardRes: Response {
     let content: String
     let author: UserRes
     let boostCount: Int
+    let boosted: Bool
     let createdAt: Date
 }
 

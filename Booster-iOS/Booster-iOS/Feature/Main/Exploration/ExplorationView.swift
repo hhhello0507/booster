@@ -32,13 +32,21 @@ struct ExplorationView: View {
             ScrollView {
                 Group {
                     if let boards = observable.boards {
-                        BoardsContainer(for: boards)
-                            .padding(.bottom, 32)
+                        BoardsContainer(for: boards) {
+                            switch $0 {
+                            case .cell(let board):
+                                observable.createBoost(boardId: board.id)
+                            }
+                        }
+                        .padding(.bottom, 32)
                     } else {
                         ProgressView()
                     }
                 }
                 .padding(insets)
+            }
+            .refreshable {
+                observable.fetchBoards()
             }
         }
     }
