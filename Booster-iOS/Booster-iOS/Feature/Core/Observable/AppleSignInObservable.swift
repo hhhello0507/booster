@@ -13,11 +13,11 @@ final class AppleSignInObservable: NSObject, ObservableObject {
     
     @Published var error: Error?
     
-    private var successCompletion: ((String) -> Void)?
+    private var successCompletion: ((_ idToken: String, _ nickname: String) -> Void)?
     private var failureCompletion: (() -> Void)?
     
     func signIn(
-        successCompletion: @escaping (String) -> Void,
+        successCompletion: @escaping (String, String) -> Void,
         failureCompletion: @escaping () -> Void
     ) {
         self.successCompletion = successCompletion
@@ -28,7 +28,7 @@ final class AppleSignInObservable: NSObject, ObservableObject {
         }
 //        request.nonce = encodeNonce
         
-        let controller = ASAuthorizationController(authorizationRequests: [request]).then {
+        ASAuthorizationController(authorizationRequests: [request]).do {
             $0.delegate = self
             $0.presentationContextProvider = self
             $0.performRequests()
@@ -50,7 +50,11 @@ extension AppleSignInObservable: ASAuthorizationControllerDelegate {
             failureCompletion?()
             return
         }
-        successCompletion?(identityTokenString)
+        
+        let fullName = credential.fullName
+        let nickname = (fullName?.familyName ?? "") + (fullName?.givenName ?? "")
+        
+        successCompletion?(identityTokenString, nickname)
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: any Error) {

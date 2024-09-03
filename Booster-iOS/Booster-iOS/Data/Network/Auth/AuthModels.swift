@@ -20,9 +20,10 @@ import Foundation
 //    let nickname: String
 //}
 
-struct OAuth2SignIn: Encodable {
+struct OAuth2SignInReq: Encodable {
     let platformType: PlatformType
     let idToken: String
+    let nickname: String
 }
 
 enum PlatformType: String, Encodable {

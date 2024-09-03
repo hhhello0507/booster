@@ -13,7 +13,7 @@ final class AuthService: Service<AuthTarget> {
     
     static let shared = AuthService(allowLog: true)
     
-    func oAuth2SignIn(_ req: OAuth2SignIn) -> ObservableResult<BaseRes<TokenRes>> {
+    func oAuth2SignIn(_ req: OAuth2SignInReq) -> ObservableResult<BaseRes<TokenRes>> {
         performRequest(.signIn(req), res: BaseRes<TokenRes>.self).observe()
     }
     
@@ -24,7 +24,7 @@ final class AuthService: Service<AuthTarget> {
 
 enum AuthTarget: MyMoya.Endpoint {
 
-    case signIn(OAuth2SignIn)
+    case signIn(OAuth2SignInReq)
     case refresh(RefreshReq)
 
     static var provider: MoyaProvider<Self> = .init()

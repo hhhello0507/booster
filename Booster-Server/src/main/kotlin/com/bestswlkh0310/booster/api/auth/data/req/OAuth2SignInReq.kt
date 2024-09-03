@@ -4,5 +4,6 @@ import com.bestswlkh0310.booster.api.auth.data.enumeration.PlatformType
 
 data class OAuth2SignInReq(
     val platformType: PlatformType,
-    val idToken: String
+    val idToken: String,
+    val nickname: String
 )

@@ -22,3 +22,5 @@ oauth2:
   google:
     client-id:
       ios: ${GOOGLE_CLIENT_ID_IOS} # TODO: Put your google client id for ios 
+  apple:
+    bundle-id: ${APPLE_BUNDLE_ID:com.hhhello0507.booster}
