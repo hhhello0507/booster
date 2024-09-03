@@ -11,9 +11,13 @@ final class SignInObservable: BaseObservable<SignInObservable.Effect> {
     
     enum Effect {}
     
-    func googleSignIn(idToken: String, completion: @escaping (TokenRes) -> Void) {
+    func oAuth2SignIn(
+        platformType: PlatformType,
+        idToken: String,
+        completion: @escaping (TokenRes) -> Void
+    ) {
         AuthService.shared.oAuth2SignIn(
-            .init(platformType: .google, idToken: idToken)
+            .init(platformType: platformType, idToken: idToken)
         ).success { res in
             completion(res.data)
         }

@@ -27,6 +27,7 @@ struct OAuth2SignIn: Encodable {
 
 enum PlatformType: String, Encodable {
     case google = "GOOGLE"
+    case apple = "APPLE"
 }
 
 struct RefreshReq: Encodable {

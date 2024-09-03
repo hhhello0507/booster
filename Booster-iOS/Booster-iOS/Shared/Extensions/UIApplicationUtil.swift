@@ -7,12 +7,17 @@
 
 import SwiftUI
 
-extension View {
-    var rootViewController: UIViewController? {
+final class UIApplicationUtil {
+
+    static var rootViewController: UIViewController? {
+        window?.rootViewController
+    }
+
+    static var window: UIWindow? {
         UIApplication.shared.connectedScenes
             .filter({ $0.activationState == .foregroundActive })
             .compactMap { $0 as? UIWindowScene }
             .compactMap { $0.keyWindow }
-            .first?.rootViewController
+            .first
     }
 }

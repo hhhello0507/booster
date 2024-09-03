@@ -14,6 +14,7 @@ struct SignInView: View {
     
     @AppState private var app
     @StateObject private var observable = SignInObservable()
+    @StateObject private var appleSignInObservable = AppleSignInObservable()
     
     var body: some View {
         VStack(spacing: 10) {
@@ -30,23 +31,35 @@ struct SignInView: View {
             }
             Spacer()
             AppleSignInButton {
-                
+                appleSignInObservable.signIn { token in
+                    print(token)
+                    return;
+                    observable.oAuth2SignIn(platformType: .apple, idToken: token) { token in
+                        app.accessToken = token.accessToken
+                        app.refreshToken = token.refreshToken
+                    }
+                } failureCompletion: {
+                    handleSignInFailure()
+                }
             }
             GoogleSignInButton {
-                GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController!) { result, err in
+                GIDSignIn.sharedInstance.signIn(withPresenting: UIApplicationUtil.rootViewController!) { result, err in
                     if let err {
                         print("sign in error - \(err)")
+                        handleSignInFailure()
                         return
                     }
                     guard let result else {
                         print("result not founded")
+                        handleSignInFailure()
                         return
                     }
                     guard let idToken = result.user.idToken?.tokenString else {
                         print("idToken not founded")
+                        handleSignInFailure()
                         return
                     }
-                    observable.googleSignIn(idToken: idToken) { token in
+                    observable.oAuth2SignIn(platformType: .google, idToken: idToken) { token in
                         app.accessToken = token.accessToken
                         app.refreshToken = token.refreshToken
                     }
@@ -56,6 +69,10 @@ struct SignInView: View {
         }
         .padding(.horizontal, 15)
         .background(Colors.Background.neutral)
+    }
+    
+    func handleSignInFailure() {
+        
     }
 }
 
