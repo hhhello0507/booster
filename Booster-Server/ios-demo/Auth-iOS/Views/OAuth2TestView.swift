@@ -17,7 +17,7 @@ struct OAuth2TestView: View {
                         dump(signInResult)
                     }
                     guard let idToken = signInResult?.user.idToken?.tokenString else {
-                        print("idToken not founded")
+                        print("idToken not found")
                         return
                     }
                     

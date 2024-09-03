@@ -24,5 +24,5 @@ class QueryDslUserRepository(
     )
         .from(user)
         .where(user.id.eq(userId))
-        .fetchFirst() ?: throw CustomException(HttpStatus.NOT_FOUND, "User not founded")
+        .fetchFirst() ?: throw CustomException(HttpStatus.NOT_FOUND, "User not found")
 }

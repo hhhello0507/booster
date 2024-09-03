@@ -4,6 +4,7 @@ import com.bestswlkh0310.booster.api.board.data.req.CreateBoardReq
 import com.bestswlkh0310.booster.api.board.data.res.BoardRes
 import com.bestswlkh0310.booster.api.core.data.res.BaseRes
 import com.bestswlkh0310.booster.api.core.data.res.BaseVoidRes
+import com.bestswlkh0310.booster.api.core.jpa.ReadOnlyTransactional
 import com.bestswlkh0310.booster.api.core.security.support.UserHolder
 import com.bestswlkh0310.booster.foundation.board.BoardRepository
 import com.bestswlkh0310.booster.foundation.board.QueryDslBoardRepository
@@ -19,6 +20,7 @@ import kotlin.random.Random
 import kotlin.random.nextInt
 
 @Service
+@ReadOnlyTransactional
 class BoardService(
     private val boardRepository: BoardRepository,
     private val queryDslBoardRepository: QueryDslBoardRepository,
@@ -39,7 +41,7 @@ class BoardService(
         )
     )
 
-    @Transactional
+    @Transactional(rollbackFor = [Exception::class])
     fun createBoard(req: CreateBoardReq): BaseRes<BoardRes> {
         
         // 유저 부스터 증가

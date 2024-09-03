@@ -36,6 +36,7 @@ class JwtClient(
         } catch (e: IllegalArgumentException) {
             throw CustomException(HttpStatus.UNAUTHORIZED, "invalid token")
         } catch (e: Exception) {
+            e.printStackTrace()
             throw CustomException(HttpStatus.UNAUTHORIZED, "invalid token")
         }
 

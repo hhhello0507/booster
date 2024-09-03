@@ -26,7 +26,18 @@ struct MyView: View {
                 LazyVStack(spacing: 10) {
                     if let user = app.user {
                         MyCardView(title: "프로필") {
-                            
+                            VStack(spacing: 4) {
+                                HStack(spacing: 8) {
+                                    Text("이름")
+                                        .myFont(.bodyB)
+                                        .foreground(Colors.Label.assistive)
+                                    Text(user.nickname)
+                                        .myFont(.bodyM)
+                                        .foreground(Colors.Label.alternative)
+                                    Spacer()
+                                }
+                            }
+                            .padding(6)
                         }
                         MyCardView(title: "부스터") {
                             HStack(spacing: 4) {

@@ -12,4 +12,4 @@ interface BoardRepository : JpaRepository<Board, Long> {
 }
 
 fun BoardRepository.getBy(id: Long) =
-    findByIdOrNull(id) ?: throw CustomException(HttpStatus.NOT_FOUND, "Board not founded")
+    findByIdOrNull(id) ?: throw CustomException(HttpStatus.NOT_FOUND, "Board not found")

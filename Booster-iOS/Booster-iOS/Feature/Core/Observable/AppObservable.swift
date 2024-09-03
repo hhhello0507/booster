@@ -23,19 +23,14 @@ final class AppObservable: BaseObservable<AppObservable.Effect> {
     
     @Published var accessToken: String? = MySign.accessToken {
         didSet {
-            if let accessToken {
-                MySign.reissue(accessToken)
-            }
+            MySign.reissue(accessToken)
         }
     }
     @Published var refreshToken: String? = MySign.refreshToken {
         didSet {
-            if let refreshToken, let accessToken {
-                MySign.login(id: "", password: "", accessToken: accessToken, refreshToken: refreshToken)
-            }
+            MySign.login(id: "", password: "", accessToken: accessToken, refreshToken: refreshToken)
         }
     }
-    
     @Published var user: UserRes?
     
     func fetchUser() {

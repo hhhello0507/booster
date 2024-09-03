@@ -24,6 +24,7 @@ struct SettingView: View {
                             .primaryButton("로그아웃") {
                                 app.accessToken = nil
                                 app.refreshToken = nil
+                                MySign.logout()
                                 router.toRoot()
                             }.secondaryButton("취소")
                         )

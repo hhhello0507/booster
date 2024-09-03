@@ -17,6 +17,6 @@ enum UserDefaultsType: String, UserDefaultsProtocol {
         user
     }
     
-    case accessToken = "ACCESS_TOKEN"
-    case refreshToken = "REFRESH_TOKEN"
+    case accessToken
+    case refreshToken
 }

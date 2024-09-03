@@ -32,10 +32,7 @@ class WebSecurityConfig(
         }
         .authorizeHttpRequests {
             it.requestMatchers(
-                "/auth/sign-up",
-                "/auth/sign-in",
-                "/auth/sign-in/oauth2",
-                "/auth/refresh"
+                "/auth/**",
             ).permitAll()
                 .anyRequest().authenticated()
         }

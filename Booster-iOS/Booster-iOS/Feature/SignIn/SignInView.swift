@@ -16,7 +16,7 @@ struct SignInView: View {
     @StateObject private var observable = SignInObservable()
     
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
             Spacer()
             VStack(spacing: 4) {
                 Image(.logo)
@@ -29,6 +29,9 @@ struct SignInView: View {
                     .foreground(Colors.Primary.normal)
             }
             Spacer()
+            AppleSignInButton {
+                
+            }
             GoogleSignInButton {
                 GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController!) { result, err in
                     if let err {
@@ -50,8 +53,8 @@ struct SignInView: View {
                 }
             }
             .padding(.bottom, 24)
-            .padding(.horizontal, 15)
         }
+        .padding(.horizontal, 15)
         .background(Colors.Background.neutral)
     }
 }

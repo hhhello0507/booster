@@ -8,6 +8,7 @@ import com.bestswlkh0310.booster.foundation.user.UserRepository
 import com.bestswlkh0310.booster.foundation.user.data.entity.User
 import com.bestswlkh0310.booster.foundation.user.getByUsername
 import com.bestswlkh0310.booster.api.core.data.res.BaseRes
+import com.bestswlkh0310.booster.api.core.jpa.ReadOnlyTransactional
 import com.bestswlkh0310.booster.global.exception.CustomException
 import com.bestswlkh0310.booster.internal.oauth2.GoogleOAuth2Client
 import org.springframework.http.*
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service
 
 
 @Service
+@ReadOnlyTransactional
 class AuthService(
     private val userRepository: UserRepository,
     private val encoder: BCryptPasswordEncoder,
@@ -28,7 +30,7 @@ class AuthService(
         if (req.password != req.passwordCheck) {
             throw CustomException(HttpStatus.BAD_REQUEST, "Password do not match")
         } else if (userRepository.existsByUsername(req.username)) {
-            throw CustomException(HttpStatus.BAD_REQUEST, "Already exists user")
+            throw CustomException(HttpStatus.BAD_REQUEST, "User already exists")
         }
 
         // create user
@@ -65,9 +67,13 @@ class AuthService(
             val username = jwtUtils.payload(JwtPayloadKey.USERNAME, req.refreshToken)
             userRepository.getByUsername(username)
         }
-
+        
+        val token = jwtUtils.generate(user)
         return BaseRes.ok(
-            jwtUtils.generate(user)
+            data = TokenRes(
+                accessToken = token.accessToken,
+                refreshToken = req.refreshToken,
+            )
         )
     }
 

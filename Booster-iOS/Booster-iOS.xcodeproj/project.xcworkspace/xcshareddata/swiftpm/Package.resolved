@@ -1,5 +1,5 @@
 {
-  "originHash" : "275ff7855e0f9d364fdfffeecc0ec9924ae76bc3a4147a70fb923c8a7a1fa809",
+  "originHash" : "844813b66b8d66af32b92dfddf5a81f34f731d4d77c7f3ce6ef06357bbc383ee",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -78,8 +78,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/hhhello0507/my-ios-kit",
       "state" : {
-        "revision" : "ff740012c9726cc28eef5d6799a45e6ad69d8acf",
-        "version" : "1.5.9"
+        "revision" : "ec4d079c497603edf612ce9542bb6936d10771d5",
+        "version" : "1.6.0"
       }
     },
     {
@@ -124,7 +124,16 @@
       "location" : "https://github.com/hhhello0507/SignKit",
       "state" : {
         "branch" : "main",
-        "revision" : "d51fc02d5a443e79f46150298a483728636e776c"
+        "revision" : "9f1560813ea00a57462ae16074eaee3a67adc233"
+      }
+    },
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit",
+      "state" : {
+        "revision" : "2842e6e84e82eb9a8dac0100ca90d9444b0307f4",
+        "version" : "5.7.1"
       }
     }
   ],

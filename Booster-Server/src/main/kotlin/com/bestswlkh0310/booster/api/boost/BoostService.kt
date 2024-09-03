@@ -3,6 +3,7 @@ package com.bestswlkh0310.booster.api.boost
 import com.bestswlkh0310.booster.api.board.data.res.BoardRes
 import com.bestswlkh0310.booster.api.boost.data.req.CreateBoostReq
 import com.bestswlkh0310.booster.api.core.data.res.BaseRes
+import com.bestswlkh0310.booster.api.core.jpa.ReadOnlyTransactional
 import com.bestswlkh0310.booster.api.core.security.support.UserHolder
 import com.bestswlkh0310.booster.foundation.board.BoardRepository
 import com.bestswlkh0310.booster.foundation.board.getBy
@@ -17,13 +18,14 @@ import kotlin.random.Random
 import kotlin.random.nextInt
 
 @Service
+@ReadOnlyTransactional
 class BoostService(
     private val boostRepository: BoostRepository,
     private val userHolder: UserHolder,
     private val boardRepository: BoardRepository,
     private val userRepository: UserRepository
 ) {
-    @Transactional
+    @Transactional(rollbackFor = [Exception::class])
     fun createBoost(req: CreateBoostReq): BaseRes<BoardRes> {
         val user = userHolder.current()
         val board = boardRepository.getBy(req.boardId)
