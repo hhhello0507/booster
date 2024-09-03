@@ -36,7 +36,7 @@ struct BoardCell: View {
                         .myFont(.labelR)
                         .foreground(Colors.Label.assistive)
                 }
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 Text("\(board.boostCount)")
                     .myFont(.headlineM)
                     .foreground(Colors.Static.white)

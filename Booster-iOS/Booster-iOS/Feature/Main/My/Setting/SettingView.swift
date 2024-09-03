@@ -29,7 +29,7 @@ struct SettingView: View {
                         )
                     }
                 }
-                .padding(insets)
+                .padding(.top, 10)
             }
         }
     }

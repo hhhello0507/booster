@@ -15,6 +15,8 @@ import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import kotlin.random.Random
+import kotlin.random.nextInt
 
 @Service
 class BoardService(
@@ -39,6 +41,13 @@ class BoardService(
 
     @Transactional
     fun createBoard(req: CreateBoardReq): BaseRes<BoardRes> {
+        
+        // 유저 부스터 증가
+        val user = userHolder.current()
+        user.booster += Random.nextInt(5..<10)
+        userRepository.save(user)
+        
+        // 게시글 저장
         val entity = boardRepository.save(
             Board(
                 content = req.content,

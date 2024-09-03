@@ -13,6 +13,7 @@
 		250B8BA32C85EA51007D8889 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B8BA22C85EA51007D8889 /* UserService.swift */; };
 		250B8BA72C86B184007D8889 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B8BA62C86B184007D8889 /* SettingView.swift */; };
 		250B8BA92C86B1DF007D8889 /* MainDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B8BA82C86B1DF007D8889 /* MainDestination.swift */; };
+		250B8BAC2C86B914007D8889 /* ArrowIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250B8BAB2C86B914007D8889 /* ArrowIcon.swift */; };
 		2586819A2C849CC9000905E2 /* Booster_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258681992C849CC9000905E2 /* Booster_iOSApp.swift */; };
 		2586819E2C849CCC000905E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2586819D2C849CCC000905E2 /* Assets.xcassets */; };
 		258681A12C849CCC000905E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 258681A02C849CCC000905E2 /* Preview Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		250B8BA22C85EA51007D8889 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		250B8BA62C86B184007D8889 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		250B8BA82C86B1DF007D8889 /* MainDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDestination.swift; sourceTree = "<group>"; };
+		250B8BAB2C86B914007D8889 /* ArrowIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowIcon.swift; sourceTree = "<group>"; };
 		258681962C849CC9000905E2 /* Booster-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Booster-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		258681992C849CC9000905E2 /* Booster_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booster_iOSApp.swift; sourceTree = "<group>"; };
 		2586819D2C849CCC000905E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,6 +138,14 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		250B8BAA2C86B90A007D8889 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				250B8BAB2C86B914007D8889 /* ArrowIcon.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		2586818D2C849CC9000905E2 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +196,7 @@
 		258681A82C849CD8000905E2 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				250B8BAA2C86B90A007D8889 /* Component */,
 				258681EA2C852DCC000905E2 /* Core */,
 				258681B32C849DD4000905E2 /* SignIn */,
 				258681B02C849DBD000905E2 /* Main */,
@@ -468,6 +479,7 @@
 				258681C82C84A35D000905E2 /* UserDefaultsType.swift in Sources */,
 				258681BE2C849EE5000905E2 /* View+rootViewController.swift in Sources */,
 				258681C32C84A0E1000905E2 /* Router.swift in Sources */,
+				250B8BAC2C86B914007D8889 /* ArrowIcon.swift in Sources */,
 				25A7BF502C85B734004782C9 /* CoreModels.swift in Sources */,
 				258681DC2C852935000905E2 /* ResponseProtocol.swift in Sources */,
 				258681D72C85286C000905E2 /* EndpointExt.swift in Sources */,

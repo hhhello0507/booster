@@ -41,7 +41,7 @@ struct MainView: View {
             self.selection = item
         } content: {
             switch selection {
-            case .home: HomeView()
+            case .home: HomeView(selection: $selection)
             case .exploration: ExplorationView()
             case .my: MyView()
             }

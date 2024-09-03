@@ -15,14 +15,17 @@ struct HomeView: View {
     @EnvironmentObject private var dialogProvider: DialogProvider
     @EnvironmentObject private var observable: BoardObservable
     @FocusState private var contentFocus
-    
+    @Binding var selection: BoosterBottomItem
+
     var body: some View {
         MyTopAppBar.default(
             title: "홈"
         ) { insets in
             VStack(spacing: 10) {
                 Button {
-                    
+                    withAnimation(.spring) {
+                        selection = .my
+                    }
                 } label: {
                     HStack(spacing: 4) {
                         Image(.boosterIcon)
@@ -38,6 +41,7 @@ struct HomeView: View {
                                 .foreground(Colors.Label.assistive)
                         }
                         Spacer()
+                        ArrowIcon(.end)
                     }
                     .cardStyle()
                 }
@@ -89,6 +93,7 @@ struct HomeView: View {
             observable.subscribe { effect in
                 switch effect {
                 case .createBoardSuccess:
+                    app.fetchUser()
                     dialogProvider.present(
                         .init(title: "작성 성공 ⚡️")
                     )
@@ -103,5 +108,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeView(selection: .constant(.home))
 }
