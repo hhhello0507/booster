@@ -13,7 +13,7 @@ class Board(
     @Column(nullable = false)
     val content: String,
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = [CascadeType.REMOVE], fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_user_id", nullable = false)
     val author: User,
 

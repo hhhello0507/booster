@@ -14,6 +14,7 @@ final class BoardObservable: BaseObservable<BoardObservable.Effect> {
         case refreshFailure
         case createBoardSuccess
         case createBoardFailure
+        case createBoostSuccess
     }
     
     @Published var boards: [BoardRes]? = nil
@@ -53,6 +54,7 @@ final class BoardObservable: BaseObservable<BoardObservable.Effect> {
         BoostService.shared.createBoost(
             .init(boardId: boardId)
         ).success { res in
+            self.emit(.createBoostSuccess)
             guard var boards = self.boards else {
                 return
             }

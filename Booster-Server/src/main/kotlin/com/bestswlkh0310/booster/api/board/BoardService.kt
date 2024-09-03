@@ -14,6 +14,7 @@ import com.bestswlkh0310.booster.global.exception.CustomException
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class BoardService(
@@ -36,13 +37,19 @@ class BoardService(
         )
     )
 
-    fun createBoard(req: CreateBoardReq): BaseRes<Board> {
-        val entity = Board(
-            content = req.content,
-            author = userHolder.current()
+    @Transactional
+    fun createBoard(req: CreateBoardReq): BaseRes<BoardRes> {
+        val entity = boardRepository.save(
+            Board(
+                content = req.content,
+                author = userHolder.current()
+            )
         )
         return BaseRes.created(
-            boardRepository.save(entity)
+            BoardRes.of(
+                board = entity,
+                boosted = false
+            )
         )
     }
 

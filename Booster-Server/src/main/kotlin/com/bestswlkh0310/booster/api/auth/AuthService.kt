@@ -74,7 +74,7 @@ class AuthService(
     fun oAuth2SignIn(req: OAuth2SignInReq): BaseRes<TokenRes> {
         // validation
         val idToken = googleOAuth2Client.verifyIdToken(req.idToken)
-        val (username, name) = idToken.payload.let { listOf(it.email, it.subject) }
+        val (username, name) = idToken.payload.let { listOf(it.email, it["name"] as String) }
         val users = userRepository.findByUsername(username)
         val user = users.firstOrNull() ?: userRepository.save(
             User(

@@ -27,20 +27,37 @@ struct BoardCell: View {
             Text(board.content)
                 .myFont(.bodyM)
                 .foreground(Colors.Label.normal)
-            Text(board.createdAt.timeAgo)
-                .myFont(.labelR)
-                .foreground(Colors.Label.assistive)
+            HStack {
+                VStack(alignment: .leading, spacing: 0) {
+                    Text(board.author.nickname)
+                        .myFont(.labelM)
+                        .foreground(Colors.Label.assistive)
+                    Text(board.createdAt.timeAgo)
+                        .myFont(.labelR)
+                        .foreground(Colors.Label.assistive)
+                }
+                .frame(maxWidth: .infinity)
+                Text("\(board.boostCount)")
+                    .myFont(.headlineM)
+                    .foreground(Colors.Static.white)
+                    .frame(width: 36, height: 36)
+                    .background(
+                        board.boosted
+                        ? Colors.Primary.normal
+                        : Colors.Line.normal
+                    )
+                    .clipShape(Circle())
+            }
+            .padding(.top, 6)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(16)
-        .foreground(Colors.Label.normal)
         .background(Colors.Background.normal)
         .cornerRadius(12, corners: .allCorners)
-        .if(board.boosted) {
-            $0.stroke(0, color: Colors.Label.normal)
-        }
         .onTapGesture {
-            action()
+            if !board.boosted {
+                action()
+            }
         }
     }
 }

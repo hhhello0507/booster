@@ -1,10 +1,3 @@
-//
-//  MainView.swift
-//  Booster-iOS
-//
-//  Created by hhhello0507 on 9/2/24.
-//
-
 import SwiftUI
 import MyDesignSystem
 
@@ -50,7 +43,13 @@ struct MainView: View {
             switch selection {
             case .home: HomeView()
             case .exploration: ExplorationView()
-            case .my: EmptyView()
+            case .my: MyView()
+            }
+        }
+        .navigationDestination(for: MainDestination.self) { destination in
+            switch destination {
+            case .setting:
+                SettingView()
             }
         }
         .environmentObject(explorationObservable)

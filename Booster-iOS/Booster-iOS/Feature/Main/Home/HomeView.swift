@@ -32,8 +32,8 @@ struct HomeView: View {
                             .frame(width: 28, height: 28)
                             .padding(2)
                             .clipShape(Circle())
-                        if let boostCount = app.user?.boostCount {
-                            Text("\(boostCount)")
+                        if let booster = app.user?.booster {
+                            Text("\(booster)")
                                 .myFont(.headlineR)
                                 .foreground(Colors.Label.assistive)
                         }

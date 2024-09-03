@@ -19,7 +19,7 @@ class QueryDslUserRepository(
             user.id,
             user.username,
             user.nickname,
-            user.boostCount
+            user.booster
         )
     )
         .from(user)

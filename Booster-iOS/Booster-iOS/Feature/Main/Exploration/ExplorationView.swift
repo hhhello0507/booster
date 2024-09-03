@@ -21,8 +21,8 @@ struct ExplorationView: View {
                         .renderingMode(.template)
                         .foreground(Colors.Primary.normal)
                         .frame(width: 24, height: 24)
-                    if let boostCount = app.user?.boostCount {
-                        Text("\(boostCount)")
+                    if let booster = app.user?.booster {
+                        Text("\(booster)")
                             .myFont(.bodyM)
                             .foreground(Colors.Label.assistive)
                     }
@@ -38,7 +38,7 @@ struct ExplorationView: View {
                                 observable.createBoost(boardId: board.id)
                             }
                         }
-                        .padding(.bottom, 32)
+                        .padding(.bottom, 108)
                     } else {
                         ProgressView()
                     }
@@ -47,6 +47,16 @@ struct ExplorationView: View {
             }
             .refreshable {
                 observable.fetchBoards()
+            }
+        }
+        .onAppear {
+            observable.subscribe { effect in
+                switch effect {
+                case .createBoostSuccess:
+                    app.fetchUser()
+                default:
+                    break
+                }
             }
         }
     }

@@ -3,7 +3,6 @@ package com.bestswlkh0310.booster.api.boost
 import com.bestswlkh0310.booster.api.board.data.res.BoardRes
 import com.bestswlkh0310.booster.api.boost.data.req.CreateBoostReq
 import com.bestswlkh0310.booster.api.core.data.res.BaseRes
-import com.bestswlkh0310.booster.api.core.data.res.BaseVoidRes
 import com.bestswlkh0310.booster.api.core.security.support.UserHolder
 import com.bestswlkh0310.booster.foundation.board.BoardRepository
 import com.bestswlkh0310.booster.foundation.board.getBy
@@ -46,8 +45,8 @@ class BoostService(
             )
         )
 
-        board.boostCount += addBoostCount
-        user.boostCount += addBoostCount
+        board.boostCount += 1
+        user.booster += addBoostCount
 
         userRepository.save(user)
         boardRepository.save(board)

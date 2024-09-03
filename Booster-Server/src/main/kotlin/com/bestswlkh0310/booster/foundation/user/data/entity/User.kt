@@ -1,8 +1,6 @@
 package com.bestswlkh0310.booster.foundation.user.data.entity
 
 import com.bestswlkh0310.booster.api.auth.data.enumeration.PlatformType
-import com.bestswlkh0310.booster.foundation.board.data.entity.Board
-import com.bestswlkh0310.booster.foundation.boost.data.entity.Boost
 import com.bestswlkh0310.booster.foundation.user.data.enumeration.UserRole
 import jakarta.persistence.*
 
@@ -27,7 +25,7 @@ class User(
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     val platformType: PlatformType = PlatformType.DEFAULT,
-    
+
     @Column(nullable = false)
-    var boostCount: Int = 0,
+    var booster: Int = 0,
 )

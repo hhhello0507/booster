@@ -26,7 +26,7 @@ class QueryDslBoardRepository(
                         board.author.id,
                         board.author.username,
                         board.author.nickname,
-                        board.author.boostCount
+                        board.author.booster
                     ),
                     board.boostCount,
                     Expressions.asBoolean(boost.isNotNull),

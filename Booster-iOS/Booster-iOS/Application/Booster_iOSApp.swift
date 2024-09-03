@@ -38,6 +38,7 @@ struct Booster_iOSApp: App {
                 }
             }
             .environmentObject(app)
+            .environmentObject(router)
         }
     }
     

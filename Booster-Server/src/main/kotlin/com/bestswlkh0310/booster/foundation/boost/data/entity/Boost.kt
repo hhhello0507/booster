@@ -14,11 +14,11 @@ class Boost(
     @Column(nullable = false)
     val count: Int,
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = [CascadeType.REMOVE], fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_user_id", nullable = false)
     val user: User,
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = [CascadeType.REMOVE], fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_board_id", nullable = false)
     val board: Board,
     

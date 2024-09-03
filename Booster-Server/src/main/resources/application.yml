@@ -10,7 +10,7 @@ spring:
   # JPA
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: true
 jwt:
   secret: ${JWT_SECRET} # TODO: Put your jwt secret
