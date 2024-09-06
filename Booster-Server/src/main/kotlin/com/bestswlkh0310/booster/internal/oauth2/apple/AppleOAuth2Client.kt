@@ -1,11 +1,9 @@
 package com.bestswlkh0310.booster.internal.oauth2.apple
 
 import com.bestswlkh0310.booster.global.exception.CustomException
-import com.bestswlkh0310.booster.internal.oauth2.apple.data.res.AppleTokenRes
 import com.bestswlkh0310.booster.internal.oauth2.apple.data.res.AppleJWKSet
-import io.jsonwebtoken.JwsHeader
+import com.bestswlkh0310.booster.internal.oauth2.apple.data.res.AppleTokenRes
 import io.jsonwebtoken.Jwts
-import io.jsonwebtoken.SignatureAlgorithm
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import org.bouncycastle.openssl.jcajce.JcaPEMKeyConverter
@@ -27,7 +25,7 @@ class AppleOAuth2Client(
     private val restClient: RestClient,
     private val properties: AppleOAuth2Properties,
 ) {
-    
+
     fun getToken(code: String) = restClient.post()
         .uri {
             it.path("/auth/token")
@@ -55,13 +53,17 @@ class AppleOAuth2Client(
         val expiration = LocalDateTime.now().plusMinutes(5)
 
         return Jwts.builder()
-            .setHeaderParam(JwsHeader.KEY_ID, properties.keyId)
+            .header()
+            .keyId(properties.keyId)
+            .and()
             .issuer(properties.teamId)
-            .setAudience(properties.audience)
+            .audience()
+            .add(properties.audience)
+            .and()
             .subject(properties.bundleId)
-            .expiration(Date.from(expiration.atZone(ZoneId.systemDefault()).toInstant()))
             .issuedAt(Date())
-            .signWith(getPrivateKey(), SignatureAlgorithm.ES256)
+            .expiration(Date.from(expiration.atZone(ZoneId.systemDefault()).toInstant()))
+            .signWith(getPrivateKey(), Jwts.SIG.ES256)
             .compact()
     }
 
