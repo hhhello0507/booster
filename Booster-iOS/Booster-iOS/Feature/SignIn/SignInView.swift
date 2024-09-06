@@ -32,9 +32,9 @@ struct SignInView: View {
             }
             Spacer()
             AppleSignInButton {
-                appleSignInObservable.signIn { idToken, nickname in
-                    print(idToken)
-                    observable.oAuth2SignIn(platformType: .apple, idToken: idToken, nickname: nickname) { token in
+                appleSignInObservable.signIn { code in
+                    print(code)
+                    observable.oAuth2SignIn(platformType: .apple, code: code) { token in
                         app.accessToken = token.accessToken
                         app.refreshToken = token.refreshToken
                     }
@@ -58,13 +58,11 @@ struct SignInView: View {
                         handleSignInFailure()
                         return
                     }
-                    let name = result.user.profile?.name ?? ""
-                    guard let idToken = result.user.idToken?.tokenString else {
-                        print("idToken not founded")
+                    guard let code = result.serverAuthCode else {
                         handleSignInFailure()
                         return
                     }
-                    observable.oAuth2SignIn(platformType: .google, idToken: idToken, nickname: name) { token in
+                    observable.oAuth2SignIn(platformType: .google, code: code) { token in
                         app.accessToken = token.accessToken
                         app.refreshToken = token.refreshToken
                     }

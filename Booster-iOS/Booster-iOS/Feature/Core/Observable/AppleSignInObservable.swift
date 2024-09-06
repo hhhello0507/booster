@@ -13,11 +13,11 @@ final class AppleSignInObservable: NSObject, ObservableObject {
     
     @Published var error: Error?
     
-    private var successCompletion: ((_ idToken: String, _ nickname: String) -> Void)?
+    private var successCompletion: ((String) -> Void)?
     private var failureCompletion: (() -> Void)?
     
     func signIn(
-        successCompletion: @escaping (String, String) -> Void,
+        successCompletion: @escaping (String) -> Void,
         failureCompletion: @escaping () -> Void
     ) {
         self.successCompletion = successCompletion
@@ -44,17 +44,14 @@ extension AppleSignInObservable: ASAuthorizationControllerDelegate {
             failureCompletion?()
             return
         }
-        guard let identityToken = credential.identityToken,
-              let identityTokenString = String(data: identityToken, encoding: .utf8) else {
+        guard let code = credential.authorizationCode,
+              let codeString = String(data: code, encoding: .utf8) else {
             print("AppleSignInObservable - identityToken not found")
             failureCompletion?()
             return
         }
         
-        let fullName = credential.fullName
-        let nickname = (fullName?.familyName ?? "") + (fullName?.givenName ?? "")
-        
-        successCompletion?(identityTokenString, nickname)
+        successCompletion?(codeString)
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: any Error) {

@@ -1,4 +1,4 @@
-package com.bestswlkh0310.booster.api.auth.data.res
+package com.bestswlkh0310.booster.internal.oauth2.apple.data.res
 
 import com.bestswlkh0310.booster.global.exception.CustomException
 import org.springframework.http.HttpStatus

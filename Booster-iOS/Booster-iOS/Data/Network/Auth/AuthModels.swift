@@ -22,8 +22,7 @@ import Foundation
 
 struct OAuth2SignInReq: Encodable {
     let platformType: PlatformType
-    let idToken: String
-    let nickname: String
+    let code: String
 }
 
 enum PlatformType: String, Encodable {

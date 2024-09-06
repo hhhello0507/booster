@@ -21,7 +21,11 @@ repositories {
 }
 
 dependencies {
-
+    
+    // For read pem file
+    implementation("org.bouncycastle:bcprov-jdk18on:1.75")
+    implementation("org.bouncycastle:bcpkix-jdk18on:1.75")
+    
     // Query Dsl
     implementation("com.querydsl:querydsl-jpa:5.0.0:jakarta")
     implementation("com.querydsl:querydsl-apt:5.0.0:jakarta")

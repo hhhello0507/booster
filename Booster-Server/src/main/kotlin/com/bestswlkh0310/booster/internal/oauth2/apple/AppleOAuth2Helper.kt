@@ -1,37 +1,27 @@
-package com.bestswlkh0310.booster.internal.oauth2
+package com.bestswlkh0310.booster.internal.oauth2.apple
 
-import com.bestswlkh0310.booster.api.auth.data.res.ApplePublicKeyRes
-import com.bestswlkh0310.booster.api.auth.data.res.ApplePublicKeysRes
 import com.bestswlkh0310.booster.global.exception.CustomException
-import com.bestswlkh0310.booster.internal.core.OAuth2Properties
+import com.bestswlkh0310.booster.internal.oauth2.apple.data.res.ApplePublicKeyRes
+import com.bestswlkh0310.booster.internal.oauth2.apple.data.res.ApplePublicKeysRes
 import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.JsonMappingException
 import com.fasterxml.jackson.databind.ObjectMapper
-import io.jsonwebtoken.Claims
-import io.jsonwebtoken.JwtException
-import io.jsonwebtoken.Jwts
-import io.jsonwebtoken.UnsupportedJwtException
-import org.springframework.beans.factory.annotation.Qualifier
+import io.jsonwebtoken.*
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Component
-import org.springframework.web.client.RestClient
 import java.math.BigInteger
-import java.security.KeyFactory
-import java.security.NoSuchAlgorithmException
-import java.security.PublicKey
+import java.security.*
 import java.security.spec.InvalidKeySpecException
 import java.security.spec.RSAPublicKeySpec
 import java.util.*
 
-
 @Component
-class AppleOAuth2Client(
-    @Qualifier("apple")
-    private val client: RestClient,
+class AppleOAuth2Helper(
     private val objectMapper: ObjectMapper,
-    private val oAuth2Properties: OAuth2Properties
+    private val properties: AppleOAuth2Properties
 ) {
+
     companion object {
         private const val IDENTITY_TOKEN_VALUE_DELIMITER: String = "\\."
         private const val HEADER_INDEX: Int = 0
@@ -40,15 +30,6 @@ class AppleOAuth2Client(
         private const val KEY_ID_HEADER: String = "kid"
         private const val POSITIVE_SIGN_NUMBER: Int = 1
     }
-
-    fun applePublicKeys() = client.get()
-        .uri {
-            it.path("/auth/keys")
-                .build()
-        }
-        .retrieve()
-        .toEntity(ApplePublicKeysRes::class.java)
-        .body ?: throw CustomException(HttpStatus.INTERNAL_SERVER_ERROR, "Apple client error")
 
     fun parseHeader(idToken: String): Map<String, String> {
         try {
@@ -63,8 +44,7 @@ class AppleOAuth2Client(
             throw RuntimeException("디코드된 헤더를 Map 형태로 분류할 수 없습니다. 헤더를 확인해주세요.")
         }
     }
-
-
+    
     fun generate(headers: Map<String, String>, keys: ApplePublicKeysRes): PublicKey {
         val applePublicKey = keys.getMatchingKey(
             headers[SIGN_ALGORITHM_HEADER],
@@ -107,8 +87,8 @@ class AppleOAuth2Client(
 
     fun validateBundleId(claims: Claims) {
         val aud = claims.audience.firstOrNull() ?: throw CustomException(HttpStatus.BAD_REQUEST, "Invalid claims")
-        if (aud != oAuth2Properties.appleBundleId) {
-            throw CustomException(HttpStatus.BAD_REQUEST, "Invalid bundle id")
-        }
+//        if (aud != oAuth2Properties.appleBundleId) {
+//            throw CustomException(HttpStatus.BAD_REQUEST, "Invalid bundle id")
+//        }
     }
 }

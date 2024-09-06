@@ -1,5 +1,6 @@
 package com.bestswlkh0310.booster.api.auth
 
+import com.bestswlkh0310.booster.internal.oauth2.google.GoogleOAuth2Helper
 import com.bestswlkh0310.booster.api.auth.data.req.*
 import com.bestswlkh0310.booster.api.auth.data.res.TokenRes
 import com.bestswlkh0310.booster.internal.token.JwtClient
@@ -11,13 +12,13 @@ import com.bestswlkh0310.booster.foundation.user.getByUsername
 import com.bestswlkh0310.booster.api.core.data.res.BaseRes
 import com.bestswlkh0310.booster.api.core.jpa.ReadOnlyTransactional
 import com.bestswlkh0310.booster.global.exception.CustomException
-import com.bestswlkh0310.booster.internal.oauth2.AppleOAuth2Client
-import com.bestswlkh0310.booster.internal.oauth2.GoogleOAuth2Client
+import com.bestswlkh0310.booster.internal.oauth2.apple.AppleOAuth2Client
+import com.bestswlkh0310.booster.internal.oauth2.apple.AppleOAuth2Helper
+import com.bestswlkh0310.booster.internal.oauth2.google.GoogleOAuth2Client
 import org.springframework.http.*
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-
 
 @Service
 @ReadOnlyTransactional
@@ -25,8 +26,10 @@ class AuthService(
     private val userRepository: UserRepository,
     private val encoder: BCryptPasswordEncoder,
     private val googleOAuth2Client: GoogleOAuth2Client,
+    private val googleOAuth2Helper: GoogleOAuth2Helper,
     private val jwtUtils: JwtClient,
-    private val appleOAuth2Client: AppleOAuth2Client
+    private val appleOAuth2Client: AppleOAuth2Client,
+    private val appleOAuth2Helper: AppleOAuth2Helper,
 ) {
     @Transactional(rollbackFor = [Exception::class])
     fun signUp(req: SignUpReq): BaseRes<TokenRes> {
@@ -95,15 +98,15 @@ class AuthService(
     }
 
     private fun googleSignIn(req: OAuth2SignInReq): User {
-        // validation
-        val idToken = googleOAuth2Client.verifyIdToken(req.idToken)
+        val token = googleOAuth2Client.getToken(code = req.code)
+        val idToken = googleOAuth2Helper.verifyIdToken(token.idToken)
         val username = idToken.payload.email
         val users = userRepository.findByUsername(username)
         val user = users.firstOrNull() ?: userRepository.save(
             User(
                 username = username,
                 password = null,
-                nickname = req.nickname,
+                nickname = "", // TODO: Add nickname
                 platformType = req.platformType
             )
         )
@@ -111,11 +114,12 @@ class AuthService(
     }
 
     private fun appleSignIn(req: OAuth2SignInReq): User {
-        val headers = appleOAuth2Client.parseHeader(idToken = req.idToken)
-        val keys = appleOAuth2Client.applePublicKeys()
-        val publicKey = appleOAuth2Client.generate(headers = headers, keys = keys)
-        val claims = appleOAuth2Client.extractClaims(idToken = req.idToken, publicKey = publicKey)
-        appleOAuth2Client.validateBundleId(claims = claims)
+        val token = appleOAuth2Client.getToken(code = req.code)
+        val headers = appleOAuth2Helper.parseHeader(idToken = token.idToken)
+        val keys = appleOAuth2Client.getPublicKeys()
+        val publicKey = appleOAuth2Helper.generate(headers = headers, keys = keys)
+        val claims = appleOAuth2Helper.extractClaims(idToken = token.idToken, publicKey = publicKey)
+        appleOAuth2Helper.validateBundleId(claims = claims)
 
         val username = claims["email"] as? String ?: throw CustomException(HttpStatus.BAD_REQUEST, "Invalid email")
         val users = userRepository.findByUsername(username)
@@ -123,7 +127,7 @@ class AuthService(
             User(
                 username = username,
                 password = null,
-                nickname = req.nickname,
+                nickname = "", // TODO: Add nickname
                 platformType = req.platformType
             )
         )

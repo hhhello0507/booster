@@ -15,5 +15,7 @@
 	</array>
 	<key>GIDClientID</key>
 	<string>${GOOGLE_CLIENT_ID}</string>
+	<key>GIDServerClientID</key>
+	<string>${GOOGLE_SERVER_CLIENT_ID}</string>
 </dict>
 </plist>
