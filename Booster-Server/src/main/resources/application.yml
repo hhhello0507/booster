@@ -6,14 +6,14 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: ${DB_URL:jdbc:mysql://localhost:3306/booster}
     username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD} # TODO: Put your DB password
+    password: ${DB_PASSWORD} # FIXME: Put your DB password
   # JPA
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
 jwt:
-  secret: ${JWT_SECRET} # TODO: Put your jwt secret
+  secret: ${JWT_SECRET} # FIXME: Put your jwt secret
   expired:
     access: 3600000
     refresh: 300000000
@@ -21,17 +21,17 @@ jwt:
 oauth2:
   google:
     client-id:
-      ios: ${GOOGLE_CLIENT_ID_IOS} # TODO: Put your google client id for ios 
-      web: ${GOOGLE_CLIENT_ID_WEB} # TODO: Put your google client id for web
-    client-secret: ${GOOGLE_CLIENT_SECRET} # TODO: Put your google client secret
-    redirect-uri: http://localhost:8080/oauth2/code/google # TODO: Put your google redirect uri
+      ios: ${GOOGLE_CLIENT_ID_IOS} # FIXME: Put your google client id for ios 
+      web: ${GOOGLE_CLIENT_ID_WEB} # FIXME: Put your google client id for web
+    client-secret: ${GOOGLE_CLIENT_SECRET} # FIXME: Put your google client secret
+    redirect-uri: http://localhost:8080/oauth2/code/google # FIXME: Put your google redirect uri
     token-uri: https://oauth2.googleapis.com/token
     resource-uri: https://www.googleapis.com/oauth2/v2/userinfo
     grant-type: authorization_code
   apple:
     grant-type: authorization_code
-    bundle-id: ${APPLE_BUNDLE_ID} # (ClientId) TODO: Put your apple bundle id
-    key-id: ${APPLE_KEY_ID} # TODO: Put your apple key id
-    team-id: ${APPLE_TEAM_ID} # TODO: Put your apple team id
+    bundle-id: ${APPLE_BUNDLE_ID} # (ClientId) FIXME: Put your apple bundle id
+    key-id: ${APPLE_KEY_ID} # FIXME: Put your apple key id
+    team-id: ${APPLE_TEAM_ID} # FIXME: Put your apple team id
     audience: https://appleid.apple.com
-    private-key: ${APPLE_P8_KEY} # TODO: Put your apple p8 key without prefix and suffix string
+    private-key: ${APPLE_P8_KEY} # FIXME: Put your apple p8 key without prefix and suffix string

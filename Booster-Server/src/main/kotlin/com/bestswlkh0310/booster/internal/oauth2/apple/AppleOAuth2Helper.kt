@@ -1,8 +1,7 @@
 package com.bestswlkh0310.booster.internal.oauth2.apple
 
 import com.bestswlkh0310.booster.global.exception.CustomException
-import com.bestswlkh0310.booster.internal.oauth2.apple.data.res.ApplePublicKeyRes
-import com.bestswlkh0310.booster.internal.oauth2.apple.data.res.ApplePublicKeysRes
+import com.bestswlkh0310.booster.internal.oauth2.apple.data.res.AppleJWKSet
 import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.JsonMappingException
@@ -45,7 +44,7 @@ class AppleOAuth2Helper(
         }
     }
     
-    fun generate(headers: Map<String, String>, keys: ApplePublicKeysRes): PublicKey {
+    fun generate(headers: Map<String, String>, keys: AppleJWKSet): PublicKey {
         val applePublicKey = keys.getMatchingKey(
             headers[SIGN_ALGORITHM_HEADER],
             headers[KEY_ID_HEADER]
@@ -53,7 +52,7 @@ class AppleOAuth2Helper(
         return generatePublicKey(applePublicKey)
     }
 
-    private fun generatePublicKey(applePublicKey: ApplePublicKeyRes): PublicKey {
+    private fun generatePublicKey(applePublicKey: AppleJWKSet.Keys): PublicKey {
         val nBytes: ByteArray = Base64.getUrlDecoder().decode(applePublicKey.n)
         val eBytes: ByteArray = Base64.getUrlDecoder().decode(applePublicKey.e)
 

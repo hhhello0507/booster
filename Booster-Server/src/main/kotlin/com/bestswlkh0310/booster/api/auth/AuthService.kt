@@ -120,7 +120,6 @@ class AuthService(
         val publicKey = appleOAuth2Helper.generate(headers = headers, keys = keys)
         val claims = appleOAuth2Helper.extractClaims(idToken = token.idToken, publicKey = publicKey)
         appleOAuth2Helper.validateBundleId(claims = claims)
-
         val username = claims["email"] as? String ?: throw CustomException(HttpStatus.BAD_REQUEST, "Invalid email")
         val users = userRepository.findByUsername(username)
         val user = users.firstOrNull() ?: userRepository.save(

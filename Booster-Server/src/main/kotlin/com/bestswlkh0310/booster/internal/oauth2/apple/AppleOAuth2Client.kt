@@ -1,8 +1,8 @@
 package com.bestswlkh0310.booster.internal.oauth2.apple
 
 import com.bestswlkh0310.booster.global.exception.CustomException
-import com.bestswlkh0310.booster.internal.oauth2.apple.data.res.AppleOAuth2TokenRes
-import com.bestswlkh0310.booster.internal.oauth2.apple.data.res.ApplePublicKeysRes
+import com.bestswlkh0310.booster.internal.oauth2.apple.data.res.AppleTokenRes
+import com.bestswlkh0310.booster.internal.oauth2.apple.data.res.AppleJWKSet
 import io.jsonwebtoken.JwsHeader
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
@@ -38,7 +38,7 @@ class AppleOAuth2Client(
                 .build()
         }
         .retrieve()
-        .toEntity<AppleOAuth2TokenRes>()
+        .toEntity<AppleTokenRes>()
         .body ?: throw CustomException(HttpStatus.BAD_REQUEST, "Apple client error")
 
     fun getPublicKeys() = restClient.get()
@@ -47,7 +47,7 @@ class AppleOAuth2Client(
                 .build()
         }
         .retrieve()
-        .toEntity(ApplePublicKeysRes::class.java)
+        .toEntity(AppleJWKSet::class.java)
         .body ?: throw CustomException(HttpStatus.INTERNAL_SERVER_ERROR, "Apple client error")
 
 
