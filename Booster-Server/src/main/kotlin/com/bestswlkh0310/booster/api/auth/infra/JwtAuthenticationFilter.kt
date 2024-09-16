@@ -3,7 +3,10 @@ package com.bestswlkh0310.booster.api.auth.infra
 import com.bestswlkh0310.booster.api.auth.data.enumeration.JwtPayloadKey
 import com.bestswlkh0310.booster.api.core.token.TokenExtractor
 import com.bestswlkh0310.booster.internal.token.JwtClient
+import jakarta.servlet.Filter
 import jakarta.servlet.FilterChain
+import jakarta.servlet.ServletRequest
+import jakarta.servlet.ServletResponse
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken

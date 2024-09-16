@@ -18,7 +18,6 @@ import java.util.*
 @Component
 class AppleOAuth2Helper(
     private val objectMapper: ObjectMapper,
-    private val properties: AppleOAuth2Properties
 ) {
 
     companion object {
@@ -82,12 +81,5 @@ class AppleOAuth2Helper(
         throw IllegalArgumentException("비어있는 jwt")
     } catch (e: JwtException) {
         throw JwtException("jwt 검증 or 분석 오류")
-    }
-
-    fun validateBundleId(claims: Claims) {
-        val aud = claims.audience.firstOrNull() ?: throw CustomException(HttpStatus.BAD_REQUEST, "Invalid claims")
-//        if (aud != oAuth2Properties.appleBundleId) {
-//            throw CustomException(HttpStatus.BAD_REQUEST, "Invalid bundle id")
-//        }
     }
 }

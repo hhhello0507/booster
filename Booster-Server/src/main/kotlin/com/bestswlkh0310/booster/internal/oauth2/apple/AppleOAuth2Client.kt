@@ -40,10 +40,7 @@ class AppleOAuth2Client(
         .body ?: throw CustomException(HttpStatus.BAD_REQUEST, "Apple client error")
 
     fun getPublicKeys() = restClient.get()
-        .uri {
-            it.path("/auth/keys")
-                .build()
-        }
+        .uri("/auth/keys")
         .retrieve()
         .toEntity(AppleJWKSet::class.java)
         .body ?: throw CustomException(HttpStatus.INTERNAL_SERVER_ERROR, "Apple client error")

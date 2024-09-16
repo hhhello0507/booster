@@ -5,7 +5,6 @@ import com.bestswlkh0310.booster.api.auth.data.enumeration.JwtPayloadKey
 import com.bestswlkh0310.booster.api.auth.data.enumeration.JwtSecretKeyType
 import com.bestswlkh0310.booster.foundation.user.data.entity.User
 import com.bestswlkh0310.booster.global.exception.CustomException
-import com.bestswlkh0310.booster.internal.core.OAuth2Properties
 import io.jsonwebtoken.*
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Component

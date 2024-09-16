@@ -54,7 +54,7 @@ class AuthService(
             jwtUtils.generate(user)
         )
     }
-    
+
     fun signIn(req: SignInReq): BaseRes<TokenRes> {
         // validation
         val user = userRepository.getByUsername(req.username)
@@ -75,7 +75,7 @@ class AuthService(
             val username = jwtUtils.payload(JwtPayloadKey.USERNAME, req.refreshToken)
             userRepository.getByUsername(username)
         }
-        
+
         val token = jwtUtils.generate(user)
         return BaseRes.ok(
             data = TokenRes(
@@ -84,7 +84,7 @@ class AuthService(
             )
         )
     }
-    
+
     @Transactional(rollbackFor = [Exception::class])
     fun oAuth2SignIn(req: OAuth2SignInReq): BaseRes<TokenRes> {
         val token = when (req.platformType) {
@@ -119,8 +119,7 @@ class AuthService(
         val keys = appleOAuth2Client.getPublicKeys()
         val publicKey = appleOAuth2Helper.generate(headers = headers, keys = keys)
         val claims = appleOAuth2Helper.extractClaims(idToken = token.idToken, publicKey = publicKey)
-        appleOAuth2Helper.validateBundleId(claims = claims)
-        val username = claims["email"] as? String ?: throw CustomException(HttpStatus.BAD_REQUEST, "Invalid email")
+        val username = claims["email"] as? String ?: throw CustomException(HttpStatus.BAD_REQUEST, "not found email")
         val users = userRepository.findByUsername(username)
         val user = users.firstOrNull() ?: userRepository.save(
             User(
